@@ -1,0 +1,2269 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Big Data en la toma de decisiones</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="PhD.(C). Orlando Joaqui-Barandica" />
+    <meta name="date" content="2023-01-01" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/rladies.css" rel="stylesheet" />
+    <link href="libs/remark-css/rladies-fonts.css" rel="stylesheet" />
+    <script src="libs/clipboard/clipboard.min.js"></script>
+    <link href="libs/shareon/shareon.min.css" rel="stylesheet" />
+    <script src="libs/shareon/shareon.min.js"></script>
+    <link href="libs/xaringanExtra-shareagain/shareagain.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-shareagain/shareagain.js"></script>
+    <link href="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.js"></script>
+    <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"Copied!","error":"Press Ctrl+C to Copy"})</script>
+    <link href="libs/font-awesome-animation/font-awesome-animation-emi.css" rel="stylesheet" />
+    <script src="libs/fontawesome/js/fontawesome-all.min.js"></script>
+    <link href="libs/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
+    <script src="libs/htmlwidgets/htmlwidgets.js"></script>
+    <link href="libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
+    <script src="libs/datatables-binding/datatables.js"></script>
+    <script src="libs/jquery/jquery-3.6.0.min.js"></script>
+    <link href="libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
+    <script src="libs/dt-core/js/jquery.dataTables.min.js"></script>
+    <link href="libs/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
+    <script src="libs/crosstalk/js/crosstalk.min.js"></script>
+    <link href="libs/leaflet/leaflet.css" rel="stylesheet" />
+    <script src="libs/leaflet/leaflet.js"></script>
+    <link href="libs/leafletfix/leafletfix.css" rel="stylesheet" />
+    <script src="libs/proj4/proj4.min.js"></script>
+    <script src="libs/Proj4Leaflet/proj4leaflet.js"></script>
+    <link href="libs/rstudio_leaflet/rstudio_leaflet.css" rel="stylesheet" />
+    <script src="libs/leaflet-binding/leaflet.js"></script>
+    <link href="libs/leaflet-easybutton/easy-button.css" rel="stylesheet" />
+    <script src="libs/leaflet-easybutton/easy-button.js"></script>
+    <script src="libs/leaflet-easybutton/EasyButton-binding.js"></script>
+    <link href="libs/leaflet-locationfilter2/locationfilter.css" rel="stylesheet" />
+    <script src="libs/leaflet-locationfilter2/locationfilter.js"></script>
+    <script src="libs/leaflet-locationfilter2/locationfilter-bindings.js"></script>
+    <link href="libs/ionicons/ionicons.min.css" rel="stylesheet" />
+    <script src="libs/core-js/shim.min.js"></script>
+    <script src="libs/react/react.min.js"></script>
+    <script src="libs/react/react-dom.min.js"></script>
+    <script src="libs/reactwidget/react-tools.js"></script>
+    <script src="libs/reactable-binding/reactable.js"></script>
+    <link href="libs/wordcloud2/wordcloud.css" rel="stylesheet" />
+    <script src="libs/wordcloud2/wordcloud2-all.js"></script>
+    <script src="libs/wordcloud2/hover.js"></script>
+    <script src="libs/wordcloud2-binding/wordcloud2.js"></script>
+    <link rel="stylesheet" href="fonts_mtheme.css" type="text/css" />
+    <link rel="stylesheet" href="cols.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+class: inverse, left, bottom
+background-image: url("img/fondo.jpg")
+background-size: cover
+
+
+# **Big Data en la toma de decisiones**
+----
+
+## **&lt;br/&gt; Sostenibilidad empresarial**
+
+### PhD.(C). Orlando Joaqui-Barandica
+### 2023
+
+
+
+
+
+
+---
+
+class: inverse, center, middle
+background-color: #122140
+
+
+
+# Universidad del Valle
+
+--
+
+## Maestría en Analítica e Inteligencia de Negocios
+---
+
+
+.pull-left[
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+&lt;img src="img/gif1.gif" width="110%" /&gt;
+]
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+
+.pull-right[
+# Orlando Joaqui-Barandica
+### [www.joaquibarandica.com](https://www.joaquibarandica.com)
+ *PhD.(C) in Industrial Engineering* 
+ 
+ *MSc. Applied Economics*
+ 
+ *BSc. Statistics*
+]
+
+
+---
+
+
+## ‘Big data: The next frontier for innovation, competition, and productivity' 
+
+
+.pull-left[
+La tecnología de big data o el análisis de grandes conjuntos de datos, se está convirtiendo en un aspecto clave de:
+
+
+1. La competitividad de las empresas
+2. El aumento de la productividad y el crecimiento
+3. La innovación
+4. La satisfacción del consumidor
+
+
+Además, los **`datos`** son el combustible que alimenta la **inteligencia artificial** y el **machine learning**, claves también para lograr un futuro más eficiente y sostenible.
+
+]
+
+
+.pull-right[
+
+![](https://media.giphy.com/media/xT9C25UNTwfZuk85WP/giphy.gif)
+
+]
+
+--
+
+.center[
+.orange[
+
+Desde el comercio minorista hasta la industria pesada, pasando por el sector de la salud, los seguros o la banca, no hay industria que no pueda beneficiarse de la inteligencia de los datos.
+
+]
+]
+
+
+---
+
+class: center, middle
+
+
+## Además de los beneficios estrictamente empresariales, como la reducción de costes, la automatización, la personalización de productos o la mejora en la toma de decisiones...
+
+&lt;br&gt;
+
+##... el .orange[**BIG DATA**] tiene el potencial de construir una economía más transparente, eficiente, justa y sostenible.
+
+
+
+---
+
+# Transparencia
+
+Desde el funcionamiento interno de las empresas hasta la gestión de nuestras sociedades, el análisis de datos permite alcanzar altos niveles de transparencia. 
+
+
+.center[
+*“En un mundo ideal, la transparencia debe aplicarse a todas las etapas del trabajo con datos".*
+]
+
+.pull-left[
+
+&lt;img src="https://media.giphy.com/media/3o6MbglpHAmtq6rvZS/giphy.gif" width="90%"/&gt;
+
+]
+
+
+.pull-right[
+
+Las partes implicadas deben estar informadas sobre los fines de los datos capturados:
+
+- ¿cómo se recopilan, almacenan, transfieren o procesan? 
+
+- También se les debe informar sobre la forma en que se analizarán los datos si algún tercero participa en el procesamiento de datos. 
+
+- Los usuarios deben recibir garantías claras de que los datos no se venderán ni se transferirán a otras instituciones o entidades legales sin el consentimiento adecuado.
+
+]
+
+
+
+---
+
+
+# Eficiencia en el uso de recursos
+
+.left-column[
+
+&lt;br&gt;
+&lt;br&gt;
+
+
+&lt;img src="https://media.giphy.com/media/WtWLJ7AraeFaTvTMwu/giphy.gif" width="90%"/&gt;
+
+
+
+&lt;img src="https://media.giphy.com/media/xD9vHfSZiBgTm/giphy.gif" width="90%"/&gt;
+
+
+]
+
+
+.right-column[
+
+
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+A nivel industrial, el análisis de .orange[**BIG DATA**] permite una producción mucho más precisa y ajustada a la demanda real, lo que a su vez conlleva la reducción de excedentes. 
+
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+.orange[
+### Esto tiene un impacto directo en el uso eficiente de recursos y, por lo tanto, en la huella medioambiental de las empresas.
+]
+]
+
+]
+
+
+
+---
+
+
+# Sostenibilidad en el uso de los recursos
+
+&lt;br&gt;
+&lt;br&gt;
+
+
+
+&gt; El uso del big data y la inteligencia artificial contribuye también a la sostenibilidad de la industria y la economía.
+
+
+
+&lt;br&gt;
+
+&gt; Por un lado, permite medir (y hacer predicciones) de forma precisa sobre el impacto de las actividades humanas en el medio ambiente.
+
+
+
+&lt;br&gt;
+
+&gt; Por otro, la gestión inteligente basada en datos de la red energética posibilita una mejor integración de las energías renovables.
+
+
+---
+
+background-image: url("https://media.giphy.com/media/ixvKqzJFAg2DC/giphy.gif")
+background-size: cover
+
+class: center, middle, inverse
+
+
+## Su aplicación en el sector utilities hace posible una gestión eficiente de servicios como el agua, las comunicaciones o la gestión de residuos. 
+
+## Todo esto implica, además, nuevos pasos hacia modelos productivos sostenibles y la construcción de una economía circular.
+
+
+
+---
+
+
+# Mejora de la responsabilidad social corporativa
+
+
+&lt;br&gt;
+
+&gt; A nivel de responsabilidad empresarial o RSC, la tecnología de .orange[BIG DATA] permite gestionar la información de forma diferente. 
+
+
+
+.pull-left[
+
+----
+### Las autoridades pueden monitorear aspectos relevantes como emisiones o respeto a los derechos humanos, las marcas pueden poner en valor sus esfuerzos de sostenibilidad y los analistas pueden perfeccionar sus predicciones.
+----
+
+]
+
+
+.pull-right[
+
+&lt;br&gt;
+
+&lt;img src="https://media.giphy.com/media/U6Qzze3Mt90Ig/giphy.gif" width="90%"/&gt;
+
+]
+
+
+
+---
+
+
+class: center, middle
+
+# ¿Qué es BIG DATA?... 🤔
+
+
+---
+
+
+
+# ¿Qué es BIG DATA?
+
+&lt;br&gt;
+
+### El .orange[BIG DATA] es el análisis masivo de datos. 
+
+
+&lt;br&gt;
+
+
+.right[
+.font140[
+Una cuantía de datos, tan sumamente grande, que las aplicaciones de software de procesamiento de datos que tradicionalmente se venían usando no son capaces de capturar, tratar y poner en valor en un tiempo razonable.
+]
+]
+
+&lt;br&gt;
+
+<span>&lt;i class="fas  fa-angle-double-right fa-2x faa-passing animated "&gt;&lt;/i&gt;</span> Igualmente, el mismo término se refiere a las .orange[nuevas tecnologías] que hacen posible el **almacenamiento y procesamiento**, además de al uso que se hace de la información obtenida a través de dichas tecnologías.
+
+---
+
+
+background-image: url(img/back5.jpg)
+background-size: cover
+
+
+
+# .orange[¿De dónde vienen los datos?]
+
+
+.pull-left[
+
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+## Producidos por personas
+
+
+]
+
+
+.pull-right[
+
+.center[
+.font140[Mandar un email, escribir un comentario en Facebook, contestar a una encuesta telefónica, meter información en una hoja de cálculo, responder a un WhatsApp, coger los datos de contacto de un cliente, hacer clic en un enlace de Internet...
+]
+
+### Infinidad de acciones que realizamos en el día a día suponen una fuente de datos inmensa.
+
+]
+
+]
+
+
+---
+
+
+
+background-image: url(img/back5.jpg)
+background-size: cover
+
+
+
+# .orange[¿De dónde vienen los datos?]
+
+
+.pull-left[
+
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+## Entre máquinas
+
+
+]
+
+
+.pull-right[
+
+.center[
+.font140[Los termómetros, parquímetros y sistemas de riego automático de las ciudades, los GPS de vehículos y teléfonos móviles, las máquinas expendedoras de bebidas y alimentos en un hospital, o los contadores de electricidad de las viviendas, etc.. 
+]
+
+### Se comunican a través de dispositivos con otros aparatos, a los que transmiten los datos que van recogiendo...
+
+]
+
+]
+
+---
+
+
+background-image: url(img/back5.jpg)
+background-size: cover
+
+
+
+# .orange[¿De dónde vienen los datos?]
+
+
+.pull-left[
+
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+## Biométricas
+
+
+]
+
+
+.pull-right[
+
+.center[
+.font140[Los datos que tienen como origen artefactos como sensores de huellas dactilares, escáneres de retina, lectores de ADN, sensores de reconocimiento facial o reconocimiento de voz... 
+]
+
+### Su uso es muy extendido en materia de seguridad en todas sus variantes...
+
+]
+
+]
+
+---
+
+
+
+background-image: url(img/back5.jpg)
+background-size: cover
+
+
+
+# .orange[¿De dónde vienen los datos?]
+
+
+.pull-left[
+
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+## Marketing Web
+
+
+]
+
+
+.pull-right[
+
+.center[
+.font140[Nuestros movimientos en la Red están sujetos a todo tipo de mediciones que tienen como objeto estudios de marketing y análisis de comportamiento.... 
+]
+
+### Con esos datos se llega a conclusiones tales como qué partes de una página atraen más al usuario, dónde hace clic o en qué zona de esta pasa más tiempo...
+
+]
+
+]
+
+---
+
+
+background-image: url(img/back5.jpg)
+background-size: cover
+
+
+
+# .orange[¿De dónde vienen los datos?]
+
+
+.pull-left[
+
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+## Transacciones de datos
+
+
+]
+
+
+.pull-right[
+
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+.font140[El traspaso de dinero de una cuenta bancaria a otra, la reserva de un billete de avión o añadir un artículo a un carrito de compra virtual de un portal de comercio electrónico, serían algunos ejemplos... 
+]
+
+]
+
+]
+
+---
+
+
+class: middle, center
+
+
+
+# .purple[Para que te hagas una idea...]
+
+&lt;br&gt;
+
+## .orange[...y centrándonos únicamente en una pequeñísima porción de los datos producidos por las personas, en el año 2017, durante un solo minuto, de promedio y a nivel global]
+
+&lt;br&gt;
+
+.gray[Se enviaron 156 millones de correos electrónicos, se realizaron 3 millones y medio de búsquedas en Google, se mandaron 16 millones de SMS, se postearon 46.200 nuevos contenidos en Instagram, se generaron 452.000 tuits y se publicaron 1,8 millones de snaps en Snapchat.]
+
+
+---
+
+
+background-image: url(img/back6.jpg)
+background-size: cover
+
+
+# Tipos de datos según su estructura
+
+
+## Datos estructurados
+
+
+.pull-left[
+
+]
+
+.pull-right[
+
+.center[
+### - Son los que tradicionalmente se han usado en el tratamiento de datos.
+
+### - Se pueden almacenar en tablas y tienen una clara defición de longitud y formato.
+
+### - Entre ellos, se encuentran los números, cadenas de caracteres y las fechas.
+]
+
+
+]
+
+
+---
+
+
+background-image: url(img/back7.jpg)
+background-size: cover
+
+
+# Tipos de datos según su estructura
+
+
+## Datos no estructurados
+
+
+.pull-left[
+
+]
+
+.pull-right[
+
+.center[
+### - Son datos en su forma original, tal y como fueron recogidos.
+
+### - No poseen un formato específico que permita almacenarlos de forma tradicional.
+
+### - Entre ellos, se encuentran los emails, documentos de texto, audio, etc.
+]
+
+
+]
+
+---
+
+
+background-image: url(img/back8.jpg)
+background-size: cover
+
+
+# Tipos de datos según su estructura
+
+
+## Datos semi estructurados
+
+
+.pull-left[
+
+]
+
+.pull-right[
+
+.center[
+### - Siguen una especie de estructura, pero esta no es lo suficientemente regular.
+
+### - Posee ciertos patrones comunes que los describen.
+
+### - Entre ellos, se encuentran el lenguaje HTML, lenguaje XML, formato JSON, etc.
+]
+
+
+]
+
+---
+
+
+.pull-left-narrow[
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+
+.center[
+# 7 V 
+# del BIG DATA
+]
+
+]
+
+.pull-right-wide[
+
+&lt;br&gt;
+
+.font110[.left[ 
+
+&gt; - .purple[.font140[V]]ELOCIDAD
+
+&lt;hr&gt;
+
+&gt; - .purple[.font140[V]]OLUMEN
+
+&lt;hr&gt;
+
+&gt; - .purple[.font140[V]]ARIEDAD
+
+&lt;hr&gt;
+
+&gt; - .purple[.font140[V]]ERACIDAD
+
+&lt;hr&gt;
+
+&gt; - .purple[.font140[V]]ALOR
+
+&lt;hr&gt;
+
+&gt; - .purple[.font140[V]]ISUALIZACIÓN
+
+&lt;hr&gt;
+
+&gt; - .purple[.font140[V]]ARIABILIDAD
+
+]
+]
+]
+
+
+
+---
+
+
+# Velocidad
+
+
+.pull-left[
+
+&lt;br&gt;
+
+Nuestro concepto de inmediatez ha cambiado en los últimos tiempos y se busca información que llegue prácticamente al instante.
+
+&lt;br&gt;
+
+----
+
+`Así, la velocidad de análisis requerida por la sociedad actual es una de las características fundamentales que tienen los datos a gran escala, donde los datos en constante movimiento procesados a tiempo real cobran protagonismo, ejecutando algoritmos cada vez más complejos en menos tiempo.`
+
+----
+
+
+]
+
+
+.pull-right[
+
+&lt;img src="https://media.giphy.com/media/xUOxeZUc8UFwMgH2MM/giphy.gif" width="90%"/&gt;
+
+]
+
+
+
+---
+
+# Volumen
+
+
+.pull-left[
+
+&lt;br&gt;
+
+La cantidad de datos generados está aumentando.
+
+&lt;br&gt;
+
+----
+
+`Según crecen las bases de datos, también lo han de hacer las aplicaciones y arquitectura construida para soportar la recogida y almacenamiento de datos cada vez más variados.`
+
+`Además, se han reducido los costes de almacenamiento propiciando almacenar grandes cuantías de información a un precio mucho más reducido que antiguamente.`
+
+----
+
+
+]
+
+
+.pull-right[
+
+&lt;img src="https://media.giphy.com/media/ftAyb0CG1FNAIZt4SO/giphy.gif" width="90%"/&gt;
+
+]
+
+
+
+---
+
+
+# Variedad
+
+
+.pull-left[
+
+&lt;br&gt;
+
+Los datos sobre los que trabajan las técnicas de macrodatos son diversos pues, como hemos visto, proceden de numerosas fuentes y se encuentran en distintos formatos.
+
+&lt;br&gt;
+
+----
+
+`Además, continúa en aumento la cuantía de datos no estructurados en proporción a los tradicionales.`
+
+`Igual que pasaba con el volumen, esta entrada en escena con fuerza de los datos no estructurados requiere nuevos tratamientos de la información, necesitando de nuevas metodologías y tecnologías para poder ser analizadas.`
+
+----
+
+
+]
+
+
+.pull-right[
+
+&lt;img src="https://media.giphy.com/media/3NeSk2IVEd2FYUQEcM/giphy.gif" width="90%"/&gt;
+
+]
+
+
+
+---
+
+
+# Veracidad
+
+
+.pull-left[
+
+&lt;br&gt;
+
+Saber la fiabilidad de la información recogida es importante para obtener unos datos de calidad.
+
+&lt;br&gt;
+
+----
+
+`Incluso, dependiendo de las aplicaciones que se le vaya a dar a la información, la veracidad se convierte en fundamental. Es un factor que puede influir mucho en conseguir una ventaja competitiva en la explotación del Big Data.`
+
+----
+
+
+]
+
+
+.pull-right[
+
+&lt;img src="https://media.giphy.com/media/dXFKDUolyLLi8gq6Cl/giphy.gif" width="90%"/&gt;
+
+]
+
+---
+
+
+# Valor
+
+
+.pull-left[
+
+&lt;br&gt;
+
+Una gran cuantía de datos frecuentemente extrae pequeñas informaciones de valor.
+
+&lt;br&gt;
+
+----
+
+`Cómo conseguir dicha información de manera eficiente es uno de los retos que afronta día a día el área de la inteligencia de datos. El valor es sin duda una cualidad fundamental en el análisis.`
+
+----
+
+
+]
+
+
+.pull-right[
+
+&lt;img src="https://media.giphy.com/media/zyYqgdql12FRC/giphy.gif" width="90%"/&gt;
+
+]
+
+
+---
+
+# Visualización
+
+
+.pull-left[
+
+&lt;br&gt;
+
+Una imagen vale más que mil palabras.
+
+&lt;br&gt;
+
+----
+
+`Convertir cientos de hojas de información en un único gráfico que muestre claramente unas conclusiones predictivas es un ejemplo de cómo mostrar los resultados de forma clara y sencilla en un evidente ejercicio de sintetización.`
+
+----
+
+
+]
+
+
+.pull-right[
+
+&lt;img src="https://media.giphy.com/media/d31vTpVi1LAcDvdm/giphy.gif" width="90%"/&gt;
+
+]
+
+
+---
+
+
+# Variabilidad
+
+
+.pull-left[
+
+&lt;br&gt;
+
+en un entorno tan cambiante como el de los macrodatos, la información varía mucho.
+
+&lt;br&gt;
+
+----
+
+`Y también han de hacerlo los modelos o tratamientos que se aplican en torno a esta, pues no son fijos en el tiempo y requieren de un control periódico.`
+
+----
+
+
+]
+
+
+.pull-right[
+
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;img src="https://media.giphy.com/media/Rubq2zDiRjHSxv7CHX/giphy.gif" width="90%"/&gt;
+
+]
+
+
+
+
+
+
+---
+
+class: center, middle
+
+
+
+# El ciclo de gestión de información en 4 fases
+
+# 👨‍💻
+--
+
+&lt;br&gt;
+
+### .orange[Conoces ya de dónde vienen los datos, los tipos de ellos que existen y sus características principales. Lo siguiente es cómo gestionarlos]
+
+
+
+---
+
+
+# 1️⃣ Captura de información
+
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+## ¿Dónde está la información que necesitamos y cómo podemos capturarla?
+
+## 🔍
+]
+
+
+
+
+---
+
+
+
+# 1️⃣ Captura de información
+
+
+&lt;br&gt;
+
+.center[
+.font140[Cómo hemos comentado... .brand-red[**HAY INFORMACIÓN POR TODAS PARTES.**]]
+]
+
+&lt;br&gt;
+
+### Para capturarla, existen varios métodos como:
+
+&gt; - .orange[*Web Scraping:*] Una técnica que mediante programas de software extrae información de sitios web.
+
+&gt; - .orange[*API's:*] La gestión de información a través de diversar API creadas, permite la comunicación entre diversos componentes de software.
+
+&gt; - .orange[*Apache Flume:*] Específicamente diseñado para recopilar y agregar grandes volúmenes de datos.
+
+&gt; - .orange[*...*]
+
+
+
+---
+
+
+# 2️⃣ Almacenamiento
+
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+## Capturados los datos necesitarás guardarlos!!!
+
+## 💾
+]
+
+
+
+
+---
+
+
+# 2️⃣ Almacenamiento
+
+
+&lt;br&gt;
+
+.center[
+.font140[Depende de su uso futuro... .brand-red[**Y EL TIPO DE INFORMACIÓN QUE SE TRATE.**]]
+]
+
+&lt;br&gt;
+
+### Se pueden guardar en:
+
+&gt; - .orange[*Hojas de cálculo:*] Para el manejo de información estructurada tradicional.
+
+&gt; - .orange[*NoSQL:*] Permite almacenamiento de información no estructurada de forma mucho más flexible y rápida.
+
+&gt; - .orange[*Hadoop:*] Entornos de trabajo como Hadoop, ayudarán a ejecutar aplicaciones necesarias para trabajar con macrodatos.
+
+&gt; - .orange[*...*]
+
+
+---
+
+
+# 3️⃣ Tratamiento
+
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+## Capturados y almacenados los datos, ¿ahora cómo los tratamos?
+
+## 🔨
+]
+
+
+
+
+---
+
+
+# 3️⃣ Tratamiento
+
+
+&lt;br&gt;
+
+
+### Se puede extraer conocimiento y buscar patrones repetitivos de esos datos a través de **la estadística** y **el machine learning** (desarrollo de tpecnicas que tienen como objetivo que las máquinas generalicen su comportamiento con base a datos de entrenamiento):
+
+&gt; - .orange[*Apache Spark:*] Es un motor unificado de analíticas para procesar datos a gran escala que integra módulos para SQL, streaming, aprendizaje automático y procesamiento de grafos.
+
+&gt; - .orange[*Python:*] Construir aplicaciones web, analizar datos, automatizar operaciones y crear aplicaciones empresariales.
+
+&gt; - .orange[*R:*] es un entorno de software libre y lenguaje de programación interpretado, es decir, ejecuta las instrucciones directamente, sin una previa compilación del programa a instrucciones en lenguaje máquina.
+
+&gt; - .orange[*...*]
+
+
+
+
+---
+
+# 4️⃣ Puesta en valor
+
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+## Capturados los datos necesitarás guardarlos!!!
+
+## 💰
+]
+
+
+
+
+---
+
+
+
+# 4️⃣ Puesta en valor
+
+
+&lt;br&gt;
+
+.center[
+.font140[Los datos en sí mismos... .brand-red[**NO GARANTIZAN CONOCIMIENTO.**]]
+]
+
+&lt;br&gt;
+
+### Sin un análisis y un tratamiento adecuado, los datos no sirven para nada. Así el valor estará, no en los propios datos, sino en la relación de estos entre sí.
+
+&gt; - .orange[*Patrones o tendencias*]
+
+&gt; - .orange[*Estimaciones, Correlaciones, Predicciones, ...*]
+
+&gt; - .orange[*Tablas y visualizaciones*]
+
+&gt; - .orange[*...*]
+
+
+
+
+---
+
+class: inverse, center, middle
+background-color: #00081d
+
+
+# Casos prácticos de aplicación
+
+# y éxito empresarial
+
+
+---
+
+
+# Amazon
+
+.pull-left-narrow[
+
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;img src="https://media.giphy.com/media/zWyv9xtsEfXQQ/giphy.gif" width="90%"/&gt;
+
+
+]
+
+
+.pull-right-wide[
+
+La compañía de referencia a nivel mundial, en lo que a comercio electrónico se refiere, basa buena parte de su éxito en conocer de antemano lo que necesitan sus clientes. Así, es muy probable que si entras en la página de esta empresa, te sugiera artículos que van a ser de gran interés para ti. 
+
+&lt;br&gt;
+
+¿Cómo? A través de la inteligencia de datos analizan muchos factores de carácter individual del usuario como sus hábitos de compra o intereses y otros más generales como tendencias del momento o pautas de conducta de otros usuarios que adquirieron productos similares.
+
+&lt;br&gt;
+
+Juntan todo en la coctelera del Big Data y ofrecen una serie de productos sugeridos o relacionados con compras que el cliente ya ha hecho o se ha planteado hacer.
+
+]
+
+
+---
+
+
+# Netflix
+
+.pull-left-narrow[
+
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;img src="https://media.giphy.com/media/JnvHE3lTHPr3WrSsrl/giphy.gif" width="90%"/&gt;
+
+
+]
+
+
+.pull-right-wide[
+
+Uno de los grandes factores del éxito de la popular empresa estadounidense Netflix, es su magistral uso de los macrodatos para crear nuevos contenidos para sus usuarios, cuyos hábitos de consumo y preferencias son observados al detalle para descubrir qué es lo que van a querer ver a continuación con base a patrones predictivos. 
+
+&lt;br&gt;
+
+Así crearon, por ejemplo, la serie House of Cards: observaron que a muchos de sus usuarios les gustaban contenidos que incluyeran poder, política, drama y sensualidad entre sus características principales. Y también que les gustaba como actor Kevin Spacey. 
+
+&lt;br&gt;
+
+Así, dieron con la fórmula y mezclaron en la trama todos estos ingredientes poniendo a protagonizar a Spacey la misma. Igual proceso para Stranger Things y otros grandes éxitos de audiencia.
+
+
+]
+
+
+---
+
+
+
+# T-Mobile
+
+.pull-left-narrow[
+
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;img src="https://media.giphy.com/media/mGKIeZ9y4A2ZvMFFCQ/giphy.gif" width="90%"/&gt;
+
+
+]
+
+
+.pull-right-wide[
+
+Esta empresa de telecomunicaciones alemana es un ejemplo de uso de los datos masivos como mejor arma de retención de clientes. 
+
+&lt;br&gt;
+
+Analizando a fondo las conversaciones, reclamaciones y descontentos que sus clientes dejaban en redes sociales, crearon soluciones específicas para cada uno de ellos y consiguieron reducir la fuga de clientes a otras empresas en un 50%, con lo que el retorno de la inversión realizada en Big Data fue compensado con creces.
+
+
+]
+
+
+---
+
+
+# Spotify
+
+.pull-left-narrow[
+
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;img src="https://media.giphy.com/media/l4FGB9Cs55wbvM75u/giphy.gif" width="90%"/&gt;
+
+
+]
+
+
+.pull-right-wide[
+
+Bajar hasta los datos individualizados más llamativos para lanzar con ellos una campaña global masiva. Eso hizo en Reino Unido la compañía sueca Spotify, que ofrece reproducción de música vía streaming. Su plan consistió en buscar la complicidad del gran público. Y lo consiguieron mostrando curiosidades o rarezas del comportamiento de algunos de sus usuarios que habían detectado a través de los macrodatos. Así, en grandes carteles publicitarios, colocaron anuncios como estos:
+
+- `Querida persona que reprodujo “Sorry” 42 veces en el Día de San Valentín, ¿qué hiciste?`
+
+- `Queridas 3.749 personas que reprodujeron “It’s the end of the world as we know it” el día del Brexit, estamos con vosotros`
+
+- `Querida persona en el Theater District que escuchó la banda sonora de Hamilton 5.376 veces este año, ¿puedes conseguirnos tickets?`
+
+
+]
+
+
+---
+
+
+# Nike
+
+.pull-left-narrow[
+
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;img src="https://media.giphy.com/media/3o6Zt4F6t6Sm1cmcus/giphy.gif" width="90%"/&gt;
+
+
+]
+
+
+.pull-right-wide[
+
+Los dispositivos electrónicos de su línea NikePlus (relojes inteligentes, pulsómetros, dispositivos con sensores que conectan sus zapatillas con un teléfono...) recogen cantidades masivas de información de millones de usuarios. 
+
+&lt;br&gt;
+
+Información que sirve a la empresa de ropa deportiva estadounidense para buscar la fidelización de los usuarios a través de retos y objetivos que apelan a la capacidad de superación de estos, creando un vínculo con la marca más allá de la simple venta de material deportivo. 
+
+
+]
+
+
+---
+
+
+
+background-image: url(img/back9.jpg)
+background-size: cover
+class: inverse, center, bottom
+
+
+
+## Está en todas partes...
+
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+## y todavía no hay tantos expertos como demanda de éstos, que sigue en aumento imparable. Por tanto, ha llegado el momento de los datos a gran escala.
+
+
+---
+
+
+
+
+class: center, middle
+
+# Motivados? 😎
+----
+
+--
+
+## Opiniones?... 🗣 Expectativas? 💬
+
+
+---
+
+
+
+background-image: url(img/monalisa1.jpg)
+background-size: cover
+
+class: inverse, center, middle
+
+
+# Visualización de datos // #DataViz... 
+
+--
+
+## ... es donde traducimos números en formas y colores...
+
+
+
+---
+
+class: center, middle
+
+.pull-left[
+
+&lt;img src="img/einstein.jpg" width="50%"/&gt;
+
+]
+
+
+.pull-right[
+
+&lt;img src="img/monalisa2.jpg" width="40%"/&gt;
+
+]
+
+----
+
+# Ciencia + Arte
+
+--
+
+### Esta comunicación humana es la forma en que nuestro tranquilo trabajo cuantitativo se convierte en un generador de ingresos trascendente o en una estrategia de producción. Incluso si planeamos implementar algoritmos y nunca compartir nuestro trabajo fuera de nuestra propia empresa, la capacidad de explicar y comunicar es muy importante.
+
+
+.font100[
+<i class="fas  fa-link "></i> [Dashboard - Corporate Social Responsibility Barometer, an app of text mining.](https://juniorjb5.shinyapps.io/Value_at_Risk/)
+]
+
+
+---
+
+
+
+background-image: url(img/back3.jpg)
+background-size: cover
+
+class: center, middle
+
+
+# <i class="fa fa-table" role="presentation" aria-label="table icon"></i>
+# Tables in R
+----
+.right[
+.bottom[
+####  [<i class="fa fa-bell" role="presentation" aria-label="bell icon"></i>](#menu)
+]
+]
+
+
+
+---
+
+# <i class="fa fa-table" role="presentation" aria-label="table icon"></i> Tables
+
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Divipola &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Departamento &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Municipio &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Edad &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Sexo &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Fecha &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 05 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; ANTIOQUIA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; ITUANGO &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 58 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; M &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2020-07-02 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 05 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; ANTIOQUIA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; MEDELLIN &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 45 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; M &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2020-12-15 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 05 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; ANTIOQUIA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; MEDELLIN &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 50 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; F &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2021-04-21 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 05 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; ANTIOQUIA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; MEDELLIN &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 26 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; F &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2020-09-11 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 05 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; ANTIOQUIA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; SABANETA &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 28 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; M &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2021-04-03 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 05 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; ANTIOQUIA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; ITAGUI &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 61 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; M &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2021-03-31 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+--
+
+.pull-left[
+
+`Datos de COVID-19`
+
+Los datos de `COVID-19` presentados tienen fecha de corte del 17 de Julio de 2020. Son descargados desde la página web [Datos abiertos Colombia](https://www.datos.gov.co)
+
+]
+
+.pull-right[
+
+### Tabla básica
+
+&gt; Esta tabla es estática puede servir para la presentación en informes tipo PDF. Es una tabla de corte sencillo desde su aspecto visual.
+
+]
+
+
+
+
+
+---
+
+
+# <i class="fa fa-table" role="presentation" aria-label="table icon"></i> Tables
+
+<div id="htmlwidget-48f1216131f064f83b9b" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-48f1216131f064f83b9b">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15"],["11","05","76","05","05","05","11","11","11","11","41","41","41","11","17"],["BOGOTA","ANTIOQUIA","VALLE","ANTIOQUIA","ANTIOQUIA","ANTIOQUIA","BOGOTA","BOGOTA","BOGOTA","BOGOTA","HUILA","HUILA","HUILA","BOGOTA","CALDAS"],["BOGOTA","MEDELLIN","BUGA","MEDELLIN","ITAGUI","MEDELLIN","BOGOTA","BOGOTA","BOGOTA","BOGOTA","NEIVA","NEIVA","NEIVA","BOGOTA","MANIZALES"],[19,50,34,25,27,55,22,28,36,42,55,68,74,61,65],["F","F","M","M","F","M","F","F","F","F","F","F","F","F","M"],["2020-03-06","2020-03-09","2020-03-09","2020-03-11","2020-03-11","2020-03-11","2020-03-11","2020-03-11","2020-03-12","2020-03-12","2020-03-12","2020-03-12","2020-03-12","2020-03-13","2020-03-13"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Divipola<\/th>\n      <th>Departamento<\/th>\n      <th>Municipio<\/th>\n      <th>Edad<\/th>\n      <th>Sexo<\/th>\n      <th>Fecha<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":5,"columnDefs":[{"className":"dt-right","targets":4},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[5,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+
+
+### Tabla dinámica
+
+&gt; Este tipo de tablas permiten una interacción con el usuario, en la cual puede ordenar datos, filtrar, paginar, etc.
+
+
+
+---
+
+
+### Este slide resume información de una Data de más de 4'000.000 de registros. 📚
+
+*Tablas y Mapas trabajando juntos!!*
+
+<div id="htmlwidget-3063ebb69e39f5044093" style="width:1100px;height:200px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3063ebb69e39f5044093">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addSelect","args":["Departamento"]},{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[[6.702032125,10.677009534,4.316107698,8.079796863,5.891672889,5.280139978,0.798556195,2.396833887,9.53665993,8.358549754,4.771120716,5.397581542,2.570143029,11.476870077,10.24738355,3.345562732,1.571094987,8.09513751,4.455241567,5.240757239,6.693633184,9.064941448,4.03477252,3.569858693,6.569577215,5.404064237,0.3673031,12.543115116,-1.54622768,2.727842865,1.924531973,0.64624561,4.713557125],[-75.504557037,-74.965219492,-74.181072702,-74.235148136,-72.627880544,-75.274983037,-73.959467561,-76.824232828,-73.517831544,-75.792008718,-74.431110916,-76.942811002,-75.584348363,-72.429510724,-74.26175733,-72.95645988,-77.87020496,-72.881882969,-75.689628528,-76.002444694,-73.486008938,-75.109817552,-75.255827095,-76.62850427,-70.967323937,-71.601880726,-75.514061833,-81.717623824,-71.502128578,-68.816612721,-72.128595691,-70.561405657,-69.41400011],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["692062","110941","1371462","30474","99015","95730","21474","48020","84327","93528","246502","15475","80852","40606","25215","81254","83947","82429","52489","82293","212380","55191","100111","366121","12051","32700","14642","6598","6512","2175","4900","1699","2745"],null,null,null,["692062","110941","1371462","30474","99015","95730","21474","48020","84327","93528","246502","15475","80852","40606","25215","81254","83947","82429","52489","82293","212380","55191","100111","366121","12051","32700","14642","6598","6512","2175","4900","1699","2745"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},{"ctKey":["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33"],"ctGroup":"Departamento"}]}],"limits":{"lat":[-1.54622768,12.543115116],"lng":[-81.717623824,-68.816612721]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-b454ecc517313a16465a" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-b454ecc517313a16465a">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Divipola":["05","08","11","13","15","17","18","19","20","23","25","27","41","44","47","50","52","54","63","66","68","70","73","76","81","85","86","88","91","94","95","97","99"],"Departamento":["ANTIOQUIA","ATLÁNTICO","BOGOTÁ, D.C.","BOLÍVAR","BOYACÁ","CALDAS","CAQUETÁ","CAUCA","CESAR","CÓRDOBA","CUNDINAMARCA","CHOCÓ","HUILA","LA GUAJIRA","MAGDALENA","META","NARIÑO","NORTE DE SANTANDER","QUINDÍO","RISARALDA","SANTANDER","SUCRE","TOLIMA","VALLE DEL CAUCA","ARAUCA","CASANARE","PUTUMAYO","ARCHIPIÉLAGO DE SAN ANDRÉS, PROVIDENCIA Y SANTA CATALINA","AMAZONAS","GUAINÍA","GUAVIARE","VAUPÉS","VICHADA"],"Latitud":[6.702032125,10.677009534,4.316107698,8.079796863,5.891672889,5.280139978,0.798556195,2.396833887,9.53665993,8.358549754,4.771120716,5.397581542,2.570143029,11.476870077,10.24738355,3.345562732,1.571094987,8.09513751,4.455241567,5.240757239,6.693633184,9.064941448,4.03477252,3.569858693,6.569577215,5.404064237,0.3673031,12.543115116,-1.54622768,2.727842865,1.924531973,0.64624561,4.713557125],"Longitud":[-75.504557037,-74.965219492,-74.181072702,-74.235148136,-72.627880544,-75.274983037,-73.959467561,-76.824232828,-73.517831544,-75.792008718,-74.431110916,-76.942811002,-75.584348363,-72.429510724,-74.26175733,-72.95645988,-77.87020496,-72.881882969,-75.689628528,-76.002444694,-73.486008938,-75.109817552,-75.255827095,-76.62850427,-70.967323937,-71.601880726,-75.514061833,-81.717623824,-71.502128578,-68.816612721,-72.128595691,-70.561405657,-69.41400011],"Casos":[692062,110941,1371462,30474,99015,95730,21474,48020,84327,93528,246502,15475,80852,40606,25215,81254,83947,82429,52489,82293,212380,55191,100111,366121,12051,32700,14642,6598,6512,2175,4900,1699,2745]},"columns":[{"accessor":".selection","name":"","type":"NULL"},{"accessor":"Divipola","name":"Divipola","type":"character"},{"accessor":"Departamento","name":"Departamento","type":"character"},{"accessor":"Latitud","name":"Latitud","type":"numeric"},{"accessor":"Longitud","name":"Longitud","type":"numeric"},{"accessor":"Casos","name":"Casos","type":"numeric"}],"defaultPageSize":5,"paginationType":"numbers","showPageInfo":true,"minRows":5,"selection":"multiple","onClick":"select","rowStyle":{"cursor":"pointer"},"crosstalkKey":["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33"],"crosstalkGroup":"Departamento","dataKey":"3503524d8b11f763399b223f98c92d9c","key":"3503524d8b11f763399b223f98c92d9c"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+
+
+
+---
+background-image: url(img/back3.jpg)
+background-size: cover
+
+class: center, middle
+
+# <i class="fa fa-chart-pie" role="presentation" aria-label="chart-pie icon"></i>
+# Basic Graphs
+----
+.right[
+.bottom[
+####  [<i class="fa fa-bell" role="presentation" aria-label="bell icon"></i>](#menu)
+]
+]
+
+
+
+---
+
+# <i class="fa fa-chart-pie" role="presentation" aria-label="chart-pie icon"></i>  Basic Graphs
+
+.left-column[
+Un gráfico básico aunque puede ser muy informativo de manera clara y concisa, la estética *(Ej: Color, Relleno (Fill), Labels, Size, Axes, ...)* 💅 hace que su lectura no sea agradable.
+
+
+### Barplot
+]
+
+.right-column[
+![](Clase_1_files/figure-html/unnamed-chunk-5-1.png)&lt;!-- --&gt;
+
+]
+
+---
+
+
+
+# <i class="fa fa-chart-pie" role="presentation" aria-label="chart-pie icon"></i>  Basic Graphs
+
+.left-column[
+Un gráfico básico aunque puede ser muy informativo de manera clara y concisa, la estética *(Ej: Color, Relleno (Fill), Labels, Size, Axes, ...)* 💅 hace que su lectura no sea agradable.
+
+
+### Barplot
+]
+
+.right-column[
+![](Clase_1_files/figure-html/unnamed-chunk-6-1.png)&lt;!-- --&gt;
+
+
+.footnote[
+### 👀 Ojo!
+&gt; No siempre la solución es el color..
+
+]
+]
+
+---
+
+background-image: url(img/monalisa1.jpg)
+background-size: cover
+
+class: inverse, center, middle
+
+# Entonces... ¿Qué es la estética?
+
+
+---
+
+# Estética
+
+.left-column[
+
+## Dícese de .... <i class="fa fa-glasses" role="presentation" aria-label="glasses icon"></i>
+
+![](https://media.giphy.com/media/HGk5ltdikjGAubGQkc/giphy.gif)
+
+]
+
+
+.right-column[
+
+La estética (del griego αἰσθητική [aisthetikê], ‘sensación’, ‘percepción’, y este de[aísthesis], ‘sensación’, ‘sensibilidad’, e -ικά [-icá], ‘relativo a’) es la rama de la filosofía que estudia la esencia y la percepción de la belleza y el arte.
+
+
+Algunos autores definen la estética de manera más amplia, como el estudio de las experiencias estéticas y los juicios estéticos en general, y no solo los relativos a la belleza. Cuando juzgamos algo como «bello», «feo», «sublime» o «elegante» (por dar algunos ejemplos), estamos haciendo juicios estéticos, que a su vez expresan experiencias estéticas. La estética es el dominio de la filosofía, estudiando el arte y cualidades como la belleza; asimismo es el estudio de estas experiencias y juicios que suceden día a día en las actividades que realizamos, produciendo sensaciones y emociones ya sean positivas o negativas en nuestra persona. La estética busca el por qué de algunas cuestiones, por ejemplo, por qué algún objeto, pintura o escultura no resulta atractivo para los espectadores; por lo tanto el arte lleva relación a la estética ya que busca generar sensaciones a través de una expresión............ 🥱🥱🥱🥱🥱🥱🥱🥱🥱🥱🥱
+
+
+----
+.right[
+Tomado de [Wikipedia](https://es.wikipedia.org/wiki/Est%C3%A9tica)
+]
+]
+
+
+---
+
+class: center, middle
+
+.pull-left[
+
+&lt;img src="img/einstein.jpg" width="50%"/&gt;
+
+]
+
+
+.pull-right[
+
+&lt;img src="img/monalisa2.jpg" width="40%"/&gt;
+
+]
+
+----
+
+# Al final la "estética es relativa"
+
+
+### Lo que para uno es *"bonito"* para otro no
+
+---
+
+background-image: url(img/back3.jpg)
+background-size: cover
+
+class: center, middle
+
+# <i class="fa fa-chart-bar" role="presentation" aria-label="chart-bar icon"></i>
+# Good Graphs
+----
+.right[
+.bottom[
+####  [<i class="fa fa-bell" role="presentation" aria-label="bell icon"></i>](#menu)
+]
+]
+
+
+
+
+---
+
+# <i class="fa fa-chart-bar" role="presentation" aria-label="chart-bar icon"></i> Good Graphs
+
+
+.pull-left[
+
+
+### ggplot2
+
+&gt; Es una de las librerías de la colección de tidyverse. `ggplot2 es un sistema para crear gráficos de forma declarativa, basado en The Grammar of Graphics . Usted proporciona los datos, le dice a ggplot2 cómo asignar variables a la estética, qué geometrías gráficas usar y se encarga de los detalles.`
+
+.center[
+&lt;img src="https://soka.gitlab.io/blog/post/2019-04-25-r-ggplot2-scatterplot/images/ggplot_hex.jpg" 
+width="150px"/&gt;
+]
+
+]
+
+.pull-right[
+
+
+![](Clase_1_files/figure-html/unnamed-chunk-7-1.png)&lt;!-- --&gt;
+
+
+
+]
+
+
+---
+
+# <i class="fa fa-chart-bar" role="presentation" aria-label="chart-bar icon"></i> Good Graphs
+
+
+&lt;img src="Clase_1_files/figure-html/unnamed-chunk-8-1.png" width="100%" /&gt;
+
+
+---
+
+# <i class="fa fa-chart-bar" role="presentation" aria-label="chart-bar icon"></i> Good Graphs
+
+.pull-left[
+
+![](Clase_1_files/figure-html/unnamed-chunk-9-1.png)&lt;!-- --&gt;
+
+]
+
+.pull-right[
+
+![](Clase_1_files/figure-html/unnamed-chunk-10-1.png)&lt;!-- --&gt;
+
+]
+
+
+
+---
+
+# <i class="fa fa-chart-bar" role="presentation" aria-label="chart-bar icon"></i> Good Graphs
+
+### Maps in R
+
+
+.left-column[
+
+&lt;img src="Clase_1_files/figure-html/unnamed-chunk-11-1.png" width="900%" /&gt;
+
+
+# <i class="fa fa-arrow-alt-circle-right" role="presentation" aria-label="arrow-alt-circle-right icon"></i> <i class="fa fa-arrow-alt-circle-right" role="presentation" aria-label="arrow-alt-circle-right icon"></i> <i class="fa fa-arrow-alt-circle-right" role="presentation" aria-label="arrow-alt-circle-right icon"></i> 
+
+
+]
+
+
+.right-column[
+
+![](Clase_1_files/figure-html/unnamed-chunk-12-1.png)&lt;!-- --&gt;
+
+]
+
+
+
+---
+
+# <i class="fa fa-comment-dots" role="presentation" aria-label="comment-dots icon"></i> Text Mining
+
+### Wordcloud
+
+.left[
+<div id="htmlwidget-7a468e35ce5e6a36bde2" style="width:100%;height:300px;" class="wordcloud2 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7a468e35ce5e6a36bde2">{"x":{"word":["oil","said","prices","opec","mln","the","last","bpd","dlrs","crude","market","reuter","saudi","will","one","barrel","kuwait","new","official","pct","price","barrels","government","production","sheikh","industry","meeting","minister","world","also","billion","futures","month","output","petroleum","quota","sources","accord","analysts","but","group","gulf","january","markets","report","today","december","demand","economic","economy","energy","help","international","may","nazer","nymex","posted","present","they","traders","158","ability","agreement","ali","april","arabia","budget","emergency","exchange","hold","imports","members","recent","riyals","says","sell","years","abdulaziz","agency","arab","ceiling","company","contract","daily","emirates","expected","expenditure","exports","growth","now","opecs","plans","qatar","quoted","research","reserve","reserves","states","study","united","way","week","west","year","150","according","added","among","asked","brings","buyers","can","change","corp","cut","day","development","effective","exploration","fall","february","fell","free","higher","increase","levels","meet","must","never","per","policy","power","problem","producing","protect","pumping","reduced","revenue","revenues","rise","saying","set","since","spa","strategic","texas","this","total","transaction","weak","yesterday","13nation","1985","198586","1986","1987","198788","address","agreed","alkhalifa","alqabas","alsabah","announced","appears","arabian","arabias","around","average","back","bank","bbl","boost","called","commitment","companies","compared","countrys","current","decrease","denied","dollars","domestic","due","efp","estimate","estimates","export","fixed","foreign","four","future","grade","guard","high","hisham","however","inc","indonesia","indonesias","intermediate","kingdoms","kuwaits","local","low","lower","lowered","made","main","march","mckiernan","measures","mizrahi","moves","much","named","next","officials","plant","position","president","pressure","producer","projected","published","real","refinery","reiterated","remain","rule","say","sector","several","sharp","ship","six","slightly","smaller","spokeswoman","state","sweet","texaco","three","trading","two","weeks","york","1518","198687","20s","285000","500","725","750","948000","activity","adhering","agriculture","along","apparently","appeared","approved","architect","areas","aspen","bankers","based","benchmark","benefits","canada","canadian","cash","changed","changes","circumstance","clearly","closed","coast","come","committee","commodity","consumption","countries","country","crossroads","crucial","cubic","currently","customers","deal","decembers","decline","deficit","deposits","deputy","diamond","differentials","difficulties","direction","discounted","dlr","early","ecuador","effect","embargo","embassy","entering","even","falling","feb","first","fiscal","fiscales","forced","fully","gcc","general","given","grades","halt","hit","hope","humanistic","impact","import","increased","increasing","instead","institute","interview","investment","jersey","june","keep","late","light","limit","limits","line","lost","louisiana","lowest","major","marketing","member","mid","million","ministers","mitigate","months","nearing","net","neutral","none","nuclear","organisation","organization","outlook","overseas","pact","pay","petroliferos","planned","port","positive","postings","predicted","press","pricing","private","probably","problems","pronounced","protected","public","put","quotes","raise","rate","reduction","referring","remarks","reports","return","review","risks","riyal","selfimposed","selling","share","shortfall","spot","steady","stick","strongly","studies","support","take","taken","techniques","throughput","trade","trust","trying","uncertainty","union","value","wam","wanted","weakness","winter","yacimientos","yanbu","zero","zone","100000","108","111","115","12217","1232","1381","13member","156","1600","1635","1650","1667","168","1685","1752","180000","200000","200foot","2226","24hour","2766","300","3749598","3750003","4133","534","5472","614","658","6745","678","718","738","able","abroad","accept","across","add","addressed","adherence","advantage","advisers","after","agricultural","aground","allocated","allocations","allow","almost","already","althani","although","alvite","amidst","analysis","analyst","annual","anything","apparent","aramco","argentine","arrangement","asia","asian","assesses","assign","assigned","associates","attract","available","averaging","aware","bahrain","bahrains","balance","baseless","basic","basis","because","beginning","bijan","bin","bit","bodys","briefly","broadened","brothers","buildings","burden","buy","buyer","calendar","cambridge","capacity","capozza","carrying","center","century","cera","certain","cftc","chairman","challenge","characterized","charging","cheap","cheating","chevron","chv","cited","citing","clever","close","closer","closes","coming","commission","communications","companys","completed","complex","condition","conditions","considered","construction","contacts","continuation","continue","continued","continues","contracted","contributed","control","cooperation","coordination","copany","corps","council","counter","coupled","covered","creek","critical","cts","currency","custom","cuts","cutting","cypriot","daniel","david","days","debtburdened","debut","decided","declared","declines","deemed","defence","delaware","delivered","delivering","departments","deregulate","deregulation","determination","devalue","device","differential","difficulty","dillard","director","discuss","discussing","distribution","distributions","divided","doha","dollar","drawbacks","drop","dropped","earlier","earnings","eastern","easy","ecuadors","editor","edmontonswann","education","eight","either","elaborate","elections","electricity","end","engineers","entitlements","environment","equally","estimated","european","exceed","exceeding","excess","excesses","excessive","exerted","exist","expanded","expansion","expartners","expectations","expects","explained","exporting","exxon","face","faced","faces","facilities","facing","failed","fallen","favours","fee","fernando","figure","figures","finance","firmer","floating","followed","for","forces","foremost","fourth","frank","full","fundamentals","gas","generally","geneva","get","globalization","glut","guaranteed","halting","harvard","heads","health","hedge","hedged","helped","hemisphere","highly","hills","hitting","hoped","housing","houston","immediately","implementation","improve","improvement","include","including","independent","indications","initiate","initiative","institutions","interbank","interest","investments","issue","jamaica","jan","juaymah","jubail","jump","just","khalifa","lack","largest","later","latest","launched","lead","leading","learn","least","lending","less","lesson","level","liberalised","lift","liftings","like","lines","liquidity","little","loan","lodged","longterm","ltd","lukman","lull","maintain","make","manager","manipulate","many","marathon","marathons","marker","mcfadden","means","mercantile","metrers","metres","mid1960s","mid1986","mideast","minus","mlotok","mob","mobil","momentum","money","monopolies","monthend","moussavarrahmani","movement","nation","natural","need","needs","negative","negotiate","neither","network","news","newspaper","nigerian","nine","nonoil","northern","notes","offset","onetwelfth","oneweek","open","opens","operations","opposite","optimism","optimistic","option","order","organiaation","our","outlining","outside","overproducing","part","parties","partly","party","past","paths","paul","paulsboro","payments","pegged","performance","period","pertains","pessimistic","philadelphia","physical","placed","plastics","platinum","point","policies","political","population","positions","postponed","pressures","previous","primarily","primary","principal","procedure","produce","produced","producers","product","products","program","projection","projects","prompted","proposed","proved","providing","provision","publish","purposes","quarter","quiet","quietly","quotas","rallied","ran","ranging","ras","rates","rationalise","readdress","reaffirmed","reasonable","recommending","recovering","recurrent","reference","refineries","refining","reflect","refloat","reform","reforms","regain","regard","regarding","region","regional","reiterate","relaxation","relieve","reluctant","remainder","remained","reported","request","resistance","resisting","resources","respectively","responsibilites","restored","restraint","restrictions","result","reuters","revealed","reviews","right","rilwanu","rising","river","rocks","rosemary","rumour","rushing","sales","salomon","santos","satisfied","saw","scheduled","scheme","seapride","season","secretary","security","seeing","seek","september","series","serve","services","session","sets","seven","severely","shamrock","sharply","shoulder","show","showed","shown","signed","signs","situation","sixmonth","slackens","slide","slump","social","sold","soon","sort","sour","south","southeast","spend","spill","spoke","spokesman","spotnext","spriggs","stabilise","stabilize","stable","start","statement","steel","steering","steps","stiff","storage","strong","subsequently","substitution","succeed","suffer","suffering","suhartos","sunday","sundays","supply","supporting","suppose","surrounding","swift","talks","tanker","tanurah","tapers","teach","telephone","terminals","test","there","third","thomas","though","thought","threemonth","tide","together","told","totalled","tower","trader","trades","traditional","traditionally","transacted","transmission","transport","trends","trusts","try","turmoil","twofold","uae","uncertain","unchanged","under","unions","unitholders","universitys","unlikely","unocal","unusually","urged","use","virtual","wants","water","wealth","wednesday","weekend","welcomed","when","whether","wishes","worldwide","xon","yergin","yesterdays"],"freq":[85,73,48,42,31,26,24,23,23,21,20,20,18,18,17,15,14,14,14,14,13,11,11,11,11,10,10,10,10,9,9,9,9,9,9,9,9,8,8,8,8,8,8,8,8,8,7,7,7,7,7,7,7,7,7,7,7,7,7,7,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"fontFamily":"Segoe UI","fontWeight":"bold","color":"random-dark","minSize":0,"weightFactor":2.11764705882353,"backgroundColor":"white","gridSize":0,"minRotation":-0.785398163397448,"maxRotation":0.785398163397448,"shuffle":true,"rotateRatio":0.4,"shape":"circle","ellipticity":0.65,"figBase64":null,"hover":null},"evals":[],"jsHooks":{"render":[{"code":"function(el,x){\n                        console.log(123);\n                        if(!iii){\n                          window.location.reload();\n                          iii = False;\n\n                        }\n  }","data":null}]}}</script>
+]
+
+
+
+---
+background-image: url(img/back3.jpg)
+background-size: cover
+
+class: center, middle
+
+# <i class="fa fa-diagnoses" role="presentation" aria-label="diagnoses icon"></i>
+# Interactive Graphs
+----
+.right[
+.bottom[
+####  [<i class="fa fa-bell" role="presentation" aria-label="bell icon"></i>](#menu)
+]
+]
+
+
+
+---
+
+# <i class="fa fa-diagnoses" role="presentation" aria-label="diagnoses icon"></i> Interactive Graphs
+
+
+
+.pull-left[
+
+
+### plotly
+
+&gt; La biblioteca de gráficos R de Plotly crea gráficos interactivos con calidad de publicación (También proporciona librerías para Python). `Las bibliotecas de gráficos de código abierto de Plotly son de uso gratuito, funcionan sin conexión y no requieren ningún registro de cuenta. Plotly también tiene ofertas comerciales, como Dash Enterprise y Chart Studio Enterprise.` 
+
+
+.center[
+&lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Plotly_logo_for_digital_final_%286%29.png/330px-Plotly_logo_for_digital_final_%286%29.png" 
+width="150px"/&gt;
+]
+
+]
+
+.pull-right[
+
+
+
+
+
+.center[
+&lt;iframe src="img/fig.3d.html" allowtransparency="true" height="450" width="1100" scrolling="yes" style="border: none;" data-external="1"&gt;&lt;/iframe&gt;
+]
+
+
+]
+
+
+
+---
+
+# <i class="fa fa-diagnoses" role="presentation" aria-label="diagnoses icon"></i> Interactive Graphs
+
+### Maps
+
+
+
+.center[
+&lt;iframe src="img/fig.map.html" allowtransparency="true" height="450" width="1100" scrolling="yes" style="border: none;" data-external="1"&gt;&lt;/iframe&gt;
+]
+
+
+
+
+
+
+---
+
+
+# <i class="fa fa-diagnoses" role="presentation" aria-label="diagnoses icon"></i> Interactive Graphs
+
+### Maps (leaflet)
+
+<div id="htmlwidget-42dfe7d7f9bab5feec85" style="width:1100px;height:400px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-42dfe7d7f9bab5feec85">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"https://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addCircleMarkers","args":[[4.433,3.421],[-75.217,-76.52],10,null,null,{"interactive":true,"className":"","stroke":false,"color":"#03F","weight":5,"opacity":0.5,"fill":true,"fillColor":"#03F","fillOpacity":1},null,null,["Ibagué","Cali"],null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[3.421,4.433],"lng":[-76.52,-75.217]}},"evals":[],"jsHooks":[]}</script>
+
+
+
+---
+
+# <i class="fa fa-diagnoses" role="presentation" aria-label="diagnoses icon"></i> Interactive Graphs
+
+### Descriptive Graph (Bar)
+
+
+
+
+.center[
+&lt;iframe src="img/fig.bar.html" allowtransparency="true" height="450" width="1100" scrolling="yes" style="border: none;" data-external="1"&gt;&lt;/iframe&gt;
+]
+
+
+---
+
+# <i class="fa fa-diagnoses" role="presentation" aria-label="diagnoses icon"></i> Interactive Graphs
+
+### Descriptive Graph (Pie)
+
+
+
+
+.center[
+&lt;iframe src="img/fig_pie.html" allowtransparency="true" height="450" width="1100" scrolling="yes" seamless="seamless" frameBorder="0" data-external="1"&gt; &lt;/iframe&gt;
+]
+
+
+---
+
+
+# <i class="fa fa-diagnoses" role="presentation" aria-label="diagnoses icon"></i> Interactive Graphs
+
+### Descriptive Graph (Line)
+
+
+
+.center[
+&lt;iframe src="img/fig.series.html" allowtransparency="true" height="450" width="1100" scrolling="yes" seamless="seamless" frameBorder="0" data-external="1"&gt; &lt;/iframe&gt;
+]
+
+
+---
+
+
+
+# <i class="fa fa-diagnoses" role="presentation" aria-label="diagnoses icon"></i> Interactive Graphs
+
+### GGPLOT2 ➡️ plotly::ggplotly()
+
+
+
+
+.pull-left[
+
+![](Clase_1_files/figure-html/unnamed-chunk-20-1.png)&lt;!-- --&gt;
+
+
+
+]
+
+
+.pull-right[
+
+
+
+
+.center[
+&lt;iframe src="img/fig.bubble.html" allowtransparency="true" height="450" width="1100" scrolling="yes" seamless="seamless" frameBorder="0" data-external="1"&gt; &lt;/iframe&gt;
+]
+
+
+
+
+]
+
+
+---
+
+# <i class="fa fa-diagnoses" role="presentation" aria-label="diagnoses icon"></i> Interactive Graphs
+
+.left-column[
+### Animated
+
+*gganimate()*
+
+Con las animaciones podemos generar impacto a nuestros graphs, mostrar evolución y mucho más.
+
+
+]
+
+.right-column[
+
+![](Clase_1_files/figure-html/unnamed-chunk-22-1.gif)&lt;!-- --&gt;
+
+]
+
+---
+
+# <i class="fa fa-diagnoses" role="presentation" aria-label="diagnoses icon"></i> Interactive Graphs
+
+.left-column[
+### Animated
+
+*gganimate()*
+
+Con las animaciones podemos generar impacto a nuestros graphs, mostrar evolución y mucho más.
+
+
+]
+
+.right-column[
+
+
+![](Clase_1_files/figure-html/unnamed-chunk-23-1.gif)&lt;!-- --&gt;
+
+
+]
+
+
+
+---
+background-image: url(img/back3.jpg)
+background-size: cover
+
+class: center, middle
+
+# <i class="fa fa-tachometer-alt" role="presentation" aria-label="tachometer-alt icon"></i>
+# Dashboard
+----
+.right[
+.bottom[
+####  [<i class="fa fa-bell" role="presentation" aria-label="bell icon"></i>](#menu)
+]
+]
+
+
+
+---
+
+#  <i class="fa fa-tachometer-alt" role="presentation" aria-label="tachometer-alt icon"></i> Dashboard
+
+
+.left-column[
+
+## Shiny
+
+.center[
+&lt;img src=img/shiny.png 
+width="150px"/&gt;
+]
+
+
+*Shiny es un paquete R que facilita la creación de aplicaciones web interactivas (aplicaciones) directamente desde R.*
+
+]
+
+
+.right-column[
+
+### Algunos ejemplos de aplicaciones en Shiny pueden ser:
+
+
+* [Didactic modeling process: Linear regression for a safety issue in rural areas of Antioquia - Colombia](https://danielrivera1.shinyapps.io/Regression2/?_ga=2.187552808.1012673826.1626746491-448761589.1527204352)
+
+
+* [A virtual lab for teaching physiology](https://dgranjon.shinyapps.io/virtual_patient_v2/_w_6c2f29f9/)
+
+
+* [New Zealand Trade Intelligence Dashboard](https://gallery.shinyapps.io/nz-trade-dash/?_ga=2.192787626.1012673826.1626746491-448761589.1527204352)
+
+* [Nutrition Calculator - calculate nutrition for recipes](https://yihanw.shinyapps.io/Recipe_Nutrition/?_ga=2.219059353.1012673826.1626746491-448761589.1527204352)
+
+* [Genome browser](https://gallery.shinyapps.io/genome_browser/?_ga=2.193901613.1012673826.1626746491-448761589.1527204352)
+
+* [The ten most similar players - Pro Evolution Soccer 2019](https://thiago-valentim.shinyapps.io/project/?_ga=2.28097724.1012673826.1626746491-448761589.1527204352)
+
+
+]
+
+
+---
+
+
+#  <i class="fa fa-tachometer-alt" role="presentation" aria-label="tachometer-alt icon"></i> Dashboard
+
+
+.left-column[
+
+## FlexDashboard
+
+.center[
+&lt;img src="https://rstudio.github.io/flexdashboard/reference/figures/logo.png" 
+width="150px"/&gt;
+]
+
+
+*El objetivo es facilitar la creación de paneles interactivos para R, utilizando R Markdown. Diseños basados en filas y columnas flexibles y fáciles de especificar.*
+
+]
+
+
+.right-column[
+
+### Algunos ejemplos de aplicaciones en FlexDashboard pueden ser:
+
+
+* [ggplotly: ggplot2 geoms](https://beta.rstudioconnect.com/jjallaire/htmlwidgets-ggplotly-geoms/htmlwidgets-ggplotly-geoms.html)
+
+
+* [Gene Expression Biclustering](https://jjallaire.shinyapps.io/shiny-biclust/)
+
+
+* [Sales Report with Highcharter](https://beta.rstudioconnect.com/jjallaire/htmlwidgets-highcharter/htmlwidgets-highcharter.html)
+
+* [HTML Widgets Showcase](https://beta.rstudioconnect.com/jjallaire/htmlwidgets-showcase-storyboard/htmlwidgets-showcase-storyboard.html)
+
+* [Waste Lands - America’s Forgotten Nuclear Legacy](https://beta.rstudioconnect.com/jjallaire/htmlwidgets-waste-sites/htmlwidgets-waste-sites.html)
+
+* [Value at Risk](https://juniorjb5.shinyapps.io/Value_at_Risk/)
+
+
+]
+
+
+
+
+---
+
+
+
+class: inverse, center, middle
+background-color: #00081d
+
+
+
+
+.pull-left[
+
+.center[
+&lt;br&gt;&lt;br&gt;
+
+# Gracias!!!
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+
+
+### Preguntas?
+]
+
+
+]
+
+
+.pull-right[
+
+
+.center[
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+
+.center[
+&lt;img style="border-radius: 50%;" src="img/avatar.png"
+width="100px" href="https://www.joaquibarandica.com"
+/&gt;
+
+<span>&lt;i class="fas  fa-envelope faa-passing animated "&gt;&lt;/i&gt;</span> orlando.joaqui@correounivalle.edu.co 
+]
+
+
+&lt;img src="img/qr-code.png" width="50%" style="display: block; margin: auto;" /&gt;
+
+
+.center[
+www.joaquibarandica.com
+]
+
+
+
+]
+
+
+]
+
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+----
+
+*The images used to set the presentation are from [pixabay](https://pixabay.com/).*
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="cols_macro.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
