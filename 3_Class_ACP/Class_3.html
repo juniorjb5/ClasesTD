@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Análisis de componentes principales</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="PhD.(C) Orlando Joaqui-Barandica" />
+    <meta name="date" content="2023-01-01" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/rladies.css" rel="stylesheet" />
+    <link href="libs/remark-css/rladies-fonts.css" rel="stylesheet" />
+    <script src="libs/clipboard/clipboard.min.js"></script>
+    <link href="libs/shareon/shareon.min.css" rel="stylesheet" />
+    <script src="libs/shareon/shareon.min.js"></script>
+    <link href="libs/xaringanExtra-shareagain/shareagain.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-shareagain/shareagain.js"></script>
+    <link href="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.js"></script>
+    <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"Copied!","error":"Press Ctrl+C to Copy"})</script>
+    <link href="libs/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="libs/font-awesome/css/v4-shims.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="fonts_mtheme.css" type="text/css" />
+    <link rel="stylesheet" href="sidney.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+class: inverse, left, bottom
+background-image: url("img/fondo.jpg")
+background-size: cover
+
+
+# **Análisis de componentes principales**
+----
+
+## **&lt;br/&gt; Tema 2**
+
+### PhD.(C) Orlando Joaqui-Barandica
+### 2023
+
+
+
+
+
+---
+name: hola
+class: inverse, middle, center
+
+# Universidad del Valle
+
+--
+
+## Maestría en Analítica e Inteligencia de Negocios
+
+
+---
+
+
+
+
+.pull-left[
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+&lt;img src="img/gif1.gif" width="110%" /&gt;
+]
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+
+.pull-right[
+# Orlando Joaqui-Barandica
+### [www.joaquibarandica.com](https://www.joaquibarandica.com)
+ *PhD.(C) in Industrial Engineering* 
+ 
+ *MSc. Applied Economics*
+ 
+ *BSc. Statistics*
+]
+
+---
+
+
+
+
+
+name: Metodologia
+class: inverse, center, middle
+
+# <i class="fa fa-broom" role="presentation" aria-label="broom icon"></i>
+# Análisis multivariado
+----
+
+.right[
+.bottom[
+####  [<i class="fa fa-bell" role="presentation" aria-label="bell icon"></i>](#menu)
+]
+]
+
+---
+
+
+# Análisis multivariado
+
+
+.font120[En la era actual de la investigación en ciencias experimentales, la recopilación de datos implica la medición de múltiples variables en numerosas unidades de observación, lo que da lugar a la generación de extensos conjuntos de datos. ]
+
+&lt;br&gt;
+
+&lt;hr&gt;
+
+&lt;br&gt;
+
+&gt; .font110[ `En estas circunstancias, el empleo de métodos estadísticos multivariados se vuelve esencial. Estos métodos permiten analizar de manera simultánea toda la información disponible, como sugieren Aluja y Morineau (1999).` ]
+
+---
+
+# Análisis multivariado
+
+.font110[
+
+El análisis de datos se fundamenta en la construcción de sistemas de información a partir de la matriz `\(X\)`, la cual puede contener:
+
+- Variables cualitativas, 
+- ... cuantitativas 
+- ... o una combinación de ambas (datos mixtos). 
+
+&lt;br&gt;
+&lt;br&gt;
+
+.orange[Dado que se manejan numerosas variables y se dispone de un gran número de observaciones para su análisis, el empleo de técnicas multivariadas se convierte en una herramienta fundamental.]
+
+&lt;br&gt;
+
+&gt; Estas técnicas facilitan la descripción de las relaciones más significativas entre las variables y los individuos en el estudio, lo que posteriormente permite la identificación y caracterización de grupos dentro de la población de interés.
+
+]
+
+
+---
+
+# Análisis multivariado
+
+&lt;br&gt;
+
+.font120[Dependiendo el tipo de matriz de datos que se tenga, se plantea el análisis
+multivariado, en la práctica nos enfrentaremos a situaciones como las
+siguientes: ]
+
+&lt;br&gt;
+&lt;br&gt;
+
+### Matriz de datos solo cuantitativas (ACP)
+### Matriz de datos solo cualitativas (ACS, ACM)
+### Matriz de datos mixtos (AFM)
+
+
+---
+
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;img src="img/Imagen1.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+
+
+
+---
+
+&lt;br&gt;
+&lt;br&gt;
+
+
+
+&lt;img src="img/Imagen2.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+&lt;br&gt;
+&lt;br&gt;
+
+
+
+&lt;img src="img/Imagen3.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+---
+
+
+# Análisis multivariado
+
+.font120[Requerimiento de los análisis clásicos
+
+* La base de datos debe tener los registros completos
+* El número de observaciones n debe superar el número de variables p
+
+]
+
+&lt;br&gt;
+
+----
+
+&lt;br&gt;
+
+.font110[
+
+&gt; * Uno de los objetivos de estos análisis es extraer q variables latentes no correlacionadas,
+las cuales son combinación lineal de las p variables originales.
+
+&lt;br&gt;
+
+&gt; * Se desea encontrar las q variables, realizando una descomposición en vectores y valores propios de la matriz `\(W = X′X\)` la cual contiene información de las variables originales.
+
+
+]
+
+
+---
+
+
+# Objetivos
+
+.font120[Algunos ejemplos para trabajar con métodos multivariantes
+
+
+* Construcción de un índice para medir la capacidad economica de un individuo
+
+* Análisis de la relación entre variables e individuos
+
+* Segmentar una población en función de sus preferencias en consumo
+
+&lt;br&gt;
+
+Se puede decir que los métodos multivariantes servira como una etapa
+intermedia a un análisis posterior, .orange[por ejemplo: un análisis de
+regresión, clasificación, discriminación, entre otras.]
+]
+
+&lt;br&gt;
+
+.center[
+### Los métodos multivariantes sirven para comprender los datos.
+]
+
+
+
+---
+
+
+name: Metodologia
+class: inverse, center, middle
+
+# <i class="fa fa-broom" role="presentation" aria-label="broom icon"></i>
+# Análisis de componentes principales (ACP)
+----
+
+.right[
+.bottom[
+####  [<i class="fa fa-bell" role="presentation" aria-label="bell icon"></i>](#menu)
+]
+]
+
+---
+
+
+# ACP
+
+.pull-left[
+
+Uno de los objetivos fundamentales del análisis multivariado, y en particular del Análisis de Componentes Principales (ACP), es la **identificación y extracción de variables latentes no correlacionadas a partir de las variables originales.** 
+
+&lt;br&gt;
+
+&gt; En este contexto, las .orange["variables latentes"] se refieren a características subyacentes que no son directamente observables, pero que influyen en los datos recopilados. 
+
+&gt; Estas variables latentes pueden representar fenómenos complejos o subyacentes que no se capturan de manera directa en las mediciones individuales.
+
+]
+
+
+
+
+.pull-right[
+
+&lt;img src="https://media.giphy.com/media/3bhC41NM5avcKnISes/giphy.gif" width="90%"/&gt;
+
+]
+
+
+
+---
+
+
+
+# ACP
+
+.pull-left[
+
+.font110[El ACP se destaca por su capacidad para transformar las variables originales en un nuevo conjunto de variables llamadas "componentes principales". 
+
+----
+
+Estas componentes principales son combinaciones lineales de las variables originales y están diseñadas de manera específica para que no estén correlacionadas entre sí. 
+
+----
+
+
+Esto significa que cada componente principal captura una parte única de la variabilidad en los datos, sin redundancias ni correlaciones con otras componentes.]
+
+]
+
+
+
+
+.pull-right[
+
+
+
+&lt;img src="img/Imagen4.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+
+]
+
+
+
+---
+
+# ACP
+
+.font120[Este método permite reducir la dimensionalidad de los datos, transformando el conjunto de p variables originales en otro conjunto de q variables incorrelacionadas (q &lt; p) llamadas componentes principales.]
+
+&lt;br&gt;
+
+$$
+`\begin{align*}
+\psi_1 &amp;= u_{11}X_1 + u_{21}X_2 + \ldots + u_{p1}X_p \\
+\psi_2 &amp;= u_{12}X_1 + u_{22}X_2 + \ldots + u_{p2}X_p \\
+&amp;\vdots \\
+\psi_q &amp;= u_{1q}X_1 + u_{2q}X_2 + \ldots + u_{pq}X_p
+\end{align*}`
+$$
+
+&lt;br&gt;
+
+.font120[Las q componentes principales son obtenidas como combinaciones lineales
+de las variables originales.]
+
+
+
+
+---
+
+
+# ACP
+
+Los componentes se ordenan en función del porcentaje de varianza explicada. De tal manera, que el primer componente será el más importante por que explica mayor porcentaje de la variabilidad de los datos ( `\(\lambda_j\)` valores propios `\(j = 1, .., p\)`).
+
+
+`$$\lambda_1 &gt; \lambda_2 &gt; \lambda_3 &gt; ... &gt; \lambda_p$$`
+
+----
+
+
+
+### El ACP tiene la opción de usar la matriz de correlaciones o la matriz de covarianzas.
+
+1. Opción: Matriz de correlación. En esta opción se le esta dando la misma importancia a todas la variables y éstas tienen diferentes escalas de medida (metros, kg, minutos, etc).
+
+1. Opción: Matriz de covarianzas. Esta opción se utiliza cuando todas las variables tienen la misma escala de medida, y el investigador quiere analizar las variables en función del grado de variabilidad (ej: calificaciones del semestre 1:5)
+
+En la mayoría de casos se trabaja el ACP normado `\((Z_i = ( X_{ij} − \mu_j ) / \sigma_j\)`
+), análisis dónde le damos la misma importancia a todas las variables de estudio.
+
+
+
+---
+
+
+
+
+name: Metodologia
+class: inverse, center, middle
+
+# <i class="fa fa-broom" role="presentation" aria-label="broom icon"></i>
+# Aprendizaje supervisado
+----
+
+.right[
+.bottom[
+####  [<i class="fa fa-bell" role="presentation" aria-label="bell icon"></i>](#menu)
+]
+]
+
+---
+
+
+# Aprendizaje supervisado
+
+
+Para entender el aprendizaje supervisado de forma intuitiva usaremos un ejemplo cotidiano. Todos hemos ido al doctor y alguna vez le hemos dicho que nos duele la garganta, que hemos tenido dolor de cabeza y fiebre. Éste nos hará unas cuantas preguntas más y luego nos dirá qué enfermedad podríamos tener y qué tratamiento seguir.
+
+.pull-left[
+
+Intuitivamente sabemos que el doctor tuvo que .orange[**entrenar**] inicialmente a partir de clases y libros donde muestran casos pasados, y estudiar qué síntomas son señal de cada enfermedad. Luego, empezó a .orange[**testear**] lo aprendido en un grupo de pacientes durante su internado. 
+
+&lt;br&gt;
+
+&gt; Finalmente, cuando ya estaba entrenado tuvo licencia para poder aplicar este aprendizaje a pacientes en su consultorio u hospital.
+]
+
+.pull-right[
+
+
+&lt;img src="https://media.giphy.com/media/9Ai5dIk8xvBm0/giphy.gif" width="90%"/&gt;
+
+]
+
+---
+
+
+# Aprendizaje supervisado
+
+
+Este es un ejemplo de aprendizaje supervisado porque el entrenamiento se realizó a partir de datos conocidos o inputs los cuales están etiquetados (duele la garganta, dolor de cabeza, fiebre) con la finalidad de obtener un resultado o output que también era conocido y etiquetado (¿tiene gripe o no?). 
+
+.pull-left[
+Cuando un doctor testea lo aprendido se sabe los inputs de pacientes y también el output que es dado por un doctor con más experiencia que puede decir qué tan efectivo es su entrenamiento. Cuando el doctor sale a atender pacientes solo tendrá inputs etiquetados con la finalidad de predecir un output etiquetado.
+
+
+- knn
+- Árboles de decisión
+- Modelo logístico
+- etc..
+
+]
+
+
+.pull-right[
+
+
+&lt;img src="https://media.giphy.com/media/Sg5y7oNvwYKEo/giphy.gif" width="90%"/&gt;
+
+]
+
+
+---
+
+
+
+name: Metodologia
+class: inverse, center, middle
+
+# <i class="fa fa-broom" role="presentation" aria-label="broom icon"></i>
+# Aprendizaje no supervisado
+----
+
+.right[
+.bottom[
+####  [<i class="fa fa-bell" role="presentation" aria-label="bell icon"></i>](#menu)
+]
+]
+
+---
+
+
+# Aprendizaje no supervisado
+
+
+Mientras que en el aprendizaje supervisado tenemos un conjunto de variables que usamos para predecir una determinada clase de salida (sube/baja, renuncia/no renuncia), en el aprendizaje no supervisado no tenemos clases de salida esperadas. 
+
+.pull-left[
+
+
+&lt;img src="https://media.giphy.com/media/bPTXcJiIzzWz6/giphy.gif" width="90%"/&gt;
+
+]
+
+
+.pull-right[
+En el aprendizaje supervisado teníamos data de entrenamiento y data de testeo que nos permitía validar la efectividad del modelo por la cercanía a la clase conocida. En el aprendizaje no supervisado no tenemos output predeterminado. 
+
+&lt;br&gt;
+
+&gt; Esto genera a su vez un gran reto porque es muy difícil saber si ya culminamos con el trabajo o podemos aun generar otro modelo con el que nos sintamos más satisfechos.
+
+]
+
+---
+
+
+# Aprendizaje no supervisado
+
+
+.pull-left[
+
+El ejemplo más sencillo para entender este tipo de aprendizaje es cuando tenemos nuestra base de clientes y queremos segmentarlos por primera vez. 
+
+&lt;br&gt;
+
+En ese caso buscamos clientes que se comporten de la misma forma, pero al ser la primera vez no sabemos cuántos segmentos podemos tener. El reto está en determinar el corte de 
+
+&lt;br&gt;
+&lt;br&gt;
+
+.center[
+.orange[.font120[**¿cuántos segmentos buscamos crear?.**]]
+]
+
+]
+
+
+
+.pull-right[
+
+&lt;img src="https://media.giphy.com/media/h3bkaZL6ph67bSjmrL/giphy.gif" width="90%"/&gt;
+
+]
+
+
+---
+
+# k-means
+
+
+
+Este método nos permite agrupar a partir de la definición de centroides. Definiremos tantos centroides como grupos queremos obtener. 
+
+El algoritmo k-medias coloca entonces en una primera iteración estos 2 puntos (centroides) de forma aleatoria en el plano. Luego, calcula la distancia entre cada centro y los demás puntos de la data. Si está más cercano a un centroide entonces lo asigna al centroide 1, sino al centroide 2.
+
+
+
+
+
+&lt;img src="img/Imagen5.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+
+
+---
+
+# Agrupamiento jerárquico
+
+
+.pull-left[
+El agrupamiento jerárquico es otro método para agrupar datos. La palabra jerárquico viene a raíz de las jerarquías que este algoritmo crea para determinar los clusters. 
+
+&lt;br&gt;
+
+&gt; A diferencia del k-medias no partimos indicando cuántos clusters queremos crear, sino que el algoritmo nos muestra un listado de combinaciones posibles de acuedo a la jerarquía de las distancias entre puntos.
+]
+
+.pull-right[
+
+&lt;img src="img/Imagen6.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+
+
+]
+
+
+---
+
+
+
+
+# Agrupamiento jerárquico
+
+
+.pull-left[
+Este algoritmo busca los dos puntos con la distancia más corta, los más cercanos, y los agrupa. Luego busca otros dos puntos con la menor distancia y pregunta: 
+
+&lt;br&gt;
+
+.center[
+**¿la distancia entre estos dos nuevos puntos es menor que la distancia de estos puntos al grupo creado antes?**
+]
+
+&lt;br&gt;
+
+Si la respuesta es sí los agrupa, sino agrupa el punto más cercano al primer grupo creado.
+
+----
+
+.orange[*Entendamos el algoritmo gráficamente.*] 
+
+
+]
+
+.pull-right[
+
+&lt;img src="img/Imagen7.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+
+- Los puntos 1 y 2 tienen la jerarquía más baja dado que tienen la distancia más corta. 
+- Luego el algoritmo busca por los siguientes dos puntos más cercanos (el punto 9 y el 12) y al comparar con el punto medio del 1 y 2 opta por crear un nuevo grupo con una jerarquía ligeramente más alta y así sucesivamente.
+
+]
+
+
+---
+
+
+
+
+# Agrupamiento jerárquico
+
+
+.pull-left[
+.font120[Sin embargo, ahora que tenemos el punto 7 y 11 y calculamos la distancia resulta que esa distancia no es la menor comparado a las distancias con los otros grupos existentes.]
+
+&lt;br&gt;
+
+.font120[Por ejemplo, el 7 está más cerca al punto medio del 1 y 2, y el 11 está más cerca al punto medio del 5 y 6.]
+]
+
+.pull-right[
+
+&lt;img src="img/Imagen8.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+
+
+]
+
+
+---
+
+
+
+
+# Agrupamiento jerárquico
+
+
+.pull-left[
+
+
+Así, el algoritmo crea una jerarquía más alta para esta agrupación.
+
+&lt;img src="img/Imagen9.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+
+]
+
+.pull-right[
+
+El algoritmo continua hasta que finalmente crea un grupo que contempla a todos como la jerarquía más alta. En el siguiente gráfico no solo podemos apreciar ello sino también en el eje y la distancia entre cada punto o grupo de puntos.
+
+&lt;img src="img/Imagen10.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+
+
+]
+
+
+
+
+
+
+---
+
+
+
+name: Metodologia
+class: inverse, center, middle
+
+# <i class="fa fa-broom" role="presentation" aria-label="broom icon"></i>
+# En R...
+----
+
+.right[
+.bottom[
+####  [<i class="fa fa-bell" role="presentation" aria-label="bell icon"></i>](#menu)
+]
+]
+
+---
+
+
+
+
+# ACP Paso a Paso
+
+
+
+```r
+#### ACP Paso a Paso para los estudiantes
+
+### 1. Estandarizar los datos Z
+### 2. Calcular la matriz de correlación, R=cor(X)=Z'NZ
+### 3. Calcular los valores y vectores propios de cor, eigen(R)
+### 4. Calcular las componentes principales T= Zu, u:vector propio
+### 5. Graficar las componentes principales, plot(T1,T2)
+
+
+mat &lt;- c(7,7.5,7.6,5,6,7.8,6.3,7.9,6,6.8)
+cie &lt;- c(6.5,9.4,9.2,6.5,6,9.6,6.4,9.7,6,7.2)
+esp &lt;- c(9.2,7.3,8,6.5,7.8,7.7,8.2,7.5,6.5,8.7)
+
+x &lt;-matrix(c(mat,cie,esp),10,3) ## se crea una matriz con 10 filas y 3 columnas
+
+
+rownames(x) &lt;- c("Lucia","Pedro","Carmen","Luis","Andres","Ana","Carlos",
+                 "Jose","Sonia","Maria") ## rownames nombre filas
+
+colnames(x) &lt;- c("Matematicas","Ciencias", "Espanol")
+
+x
+
+### 1. ESTANDARIZAR LA MATRIZ x.
+
+z.mat &lt;- (mat-mean(mat)) / sd(mat)
+z.cie &lt;- (cie-mean(cie))/ sd(cie)
+z.esp &lt;- (esp-mean(esp))/ sd(esp)
+
+Z &lt;- matrix(c(z.mat,z.cie,z.esp),10,3)
+Z
+### 2. MATRIZ DE correlacion de los datos x
+
+R &lt;- cor(x) ## cor(x) = cor(Z)
+R
+### 3. Calcular los valores y vectores propios
+
+valoresyvectores &lt;- eigen(R) ## calcular valores y vectores propios
+
+u &lt;- valoresyvectores$vectors ## vectores propios
+
+### 4. Calcular las componentes principales Tcomp=Zu
+
+Tcomp &lt;- Z %*% u
+Tcomp
+
+
+### 5. Graficar las tcomp
+
+plot(Tcomp[,1],Tcomp[,2],col="blue")
+abline(h=0,v=0)
+text(Tcomp[,1],Tcomp[,2]+0.12,row.names(x),cex=0.8)
+```
+
+
+---
+
+# Clusters
+
+
+
+```r
+library(tidyverse)
+
+
+jugadores &lt;- tibble(x = c(-1, -2, 8, 7, -12, -15, -13, 15, 21, 12, -25, 26),
+                    y = c(1, -3, 6, -8, 8, 0, -10, 16, 2, -15, 1, 0)
+)
+
+
+
+jugadores %&gt;% 
+  ggplot() +
+  aes(x, y) +
+  geom_point(size = 5)
+
+
+
+modelo_kmeans &lt;- kmeans(jugadores, centers = 2)
+
+# Imprimimos las coordenadas de los centros
+modelo_kmeans$centers
+#&gt;           x          y
+#&gt; 1 -11.33333 -0.5000000
+#&gt; 2  14.83333  0.1666667
+
+
+equipo &lt;- modelo_kmeans$cluster
+
+
+# Agregamos la columna del cluster
+jugadores_agrupados &lt;- jugadores %&gt;% 
+  mutate(cluster = equipo)
+
+# Visualizamos los jugadores de acuerdo a la agrupación
+jugadores_agrupados %&gt;% 
+  ggplot() +
+  aes(x, y, fill = factor(cluster)) +
+  geom_point(size = 9, pch = 21) +
+  scale_fill_manual(values=c("#EE220D", "green")) +
+  theme(legend.position = "none")
+
+
+
+
+# Agrupamiento k &gt;= 3
+
+modelo_kmeans &lt;- kmeans(jugadores, centers = 5)
+
+equipo &lt;- modelo_kmeans$cluster
+
+jugadores_agrupados &lt;- jugadores %&gt;% 
+  mutate(cluster = equipo)
+
+jugadores_agrupados %&gt;% 
+  ggplot() +
+  aes(x, y, color = factor(cluster)) +
+  geom_point(size = 5) +
+  theme(legend.position = "none")
+
+
+
+##########################################################################
+
+
+
+library(factoextra)
+
+fviz_nbclust(jugadores, FUN = kmeans, method = "wss")
+
+fviz_nbclust(jugadores, FUN = kmeans, method = "silhouette")
+
+
+##########
+
+
+url &lt;- "http://archive.ics.uci.edu/ml/machine-learning-databases/00292/Wholesale%20customers%20data.csv"
+clientes &lt;- read_csv(url)
+
+clientes
+
+clientes_filtrado &lt;- clientes %&gt;% 
+  select(Milk, Grocery, Frozen)
+
+
+fviz_nbclust(clientes_filtrado, FUN = kmeans, method = "silhouette")
+
+
+modelo &lt;- kmeans(clientes_filtrado, centers = 2)
+
+clientes_agrupados &lt;- clientes_filtrado %&gt;% 
+  mutate(cluster = modelo$cluster)
+
+clientes_agrupados
+
+
+clientes_agrupados %&gt;% 
+  group_by(cluster) %&gt;% 
+  summarise(total = n(), 
+            media_Milk = mean(Milk), 
+            media_Grocery = mean(Grocery),
+            media_Frozen = mean(Frozen))
+
+
+library(reshape2)
+
+data_long&lt;- melt(clientes_agrupados, id = "cluster")
+
+#Primer grafico
+ggplot(data_long,aes(y= value, x= variable)) +
+  geom_boxplot()
+
+#Segundo Grafico
+  ggplot(data_long,aes(y= value, x= variable, color = as.factor(cluster))) +
+  geom_boxplot()
+
+
+##################################################################
+#Metodo de Ward o Jerarquico
+  
+  library(tidyverse)
+  
+  jugadores &lt;- tibble(x = c(-1, -2, 8, 7, -12, -15, -13, 15, 21, 12, -25, 26),
+                      y = c(1, -3, 6, -8, 8, 0, -10, 16, 2, -15, 1, 0)
+  )
+
+  
+  dist_entre_jugadores &lt;- dist(jugadores)
+  
+  
+  modelo_jerarquico &lt;- hclust(dist_entre_jugadores)
+
+  
+  
+  library(dendextend)
+  dend_modelo &lt;- as.dendrogram(modelo_jerarquico)
+  plot(dend_modelo)
+    
+  modelo_jerarquico
+  
+  
+  corte &lt;- 28
+  
+  dend_modelo %&gt;% 
+    color_branches(h = corte) %&gt;% 
+    color_labels(h = corte) %&gt;% 
+    plot() %&gt;% 
+    abline(h = corte, lty = 2)
+  
+  
+  clusters_deseados &lt;- 6
+  
+  dend_modelo %&gt;% 
+    color_branches(k = clusters_deseados) %&gt;% 
+    color_labels(k = clusters_deseados) %&gt;% 
+    plot()
+
+  
+  library(factoextra)
+  fviz_nbclust(jugadores, FUN = hcut, method = "silhouette")
+```
+
+
+---
+
+
+# Reducción de dimensionalidad y clusters
+
+
+
+
+
+```r
+##################################################################
+# Reducir la dimensionalidad
+# ACP
+  
+  
+  ##PCA:
+    
+  ##  library(stats)
+  
+  ##• prcomp() -&gt; Forma rápida de implementar PCA sobre una matriz de datos.
+  
+  ##• princomp()
+  
+  ##library(FactoMineR)
+  
+  ##• PCA() -&gt; PCA con resultados más detallados. Los valores ausentes se reemplazan por la media de cada columna. Pueden incluirse variables categóricas suplementarias. Estandariza automáticamente los datos.
+  
+  ##library(factoextra)
+  
+  ##• get_pca() -&gt; Extrae la información sobre las observaciones y variables de un análisis PCA.
+  
+  ##• get_pca_var() -&gt; Extrae la información sobre las variables.
+  
+  ##• get_pca_ind() -&gt; Extrae la información sobre las observaciones.
+  
+  
+  
+  
+  ##Visualizaciones:
+    
+  ##  library(FactoMineR)
+  
+  ##• fviz_pca_ind() -&gt; Representación de observaciones sobre componentes principales.
+  
+  ##• fviz_pca_var() -&gt; Representación de variables sobre componentes principales.
+  
+  ##• fviz_screeplot() -&gt; Representación (gráfico barras) de eigenvalores.
+  
+  ##• fviz_contrib() -&gt; Representa la contribución de filas/columnas de los resultados de un pca.
+  
+  
+  library(factoextra)
+  library(tidyverse)
+  
+  data(decathlon2)
+  View(decathlon2)
+  
+  decathlon2.train &lt;- decathlon2[1:23, 1:10]
+  head(decathlon2.train[, 1:6])
+  
+  res.pca &lt;- prcomp(decathlon2.train, scale = TRUE)
+  
+  fviz_eig(res.pca)
+  
+  
+  fviz_pca_ind(res.pca,
+               col.ind = "cos2", # Color by the quality of representation
+               gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
+               repel = TRUE    # Avoid text overlapping
+               
+  )
+  
+  
+  
+  fviz_pca_var(res.pca,
+               col.var = "contrib", # Color by contributions to the PC
+               gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
+               repel = TRUE     # Avoid text overlapping
+  )
+  
+  
+  
+  fviz_pca_biplot(res.pca, repel = TRUE,
+                  col.var = "#2E9FDF", # Variables color
+                  col.ind = "#696969",
+                  axes=c(3,4)# Individuals color
+  )
+  
+  
+  
+  ## Acceder a los resultados
+  
+  library(factoextra)
+  # Eigenvalues
+  eig.val &lt;- get_eigenvalue(res.pca)
+  eig.val
+  
+  # Resultados para Variables
+  res.var &lt;- get_pca_var(res.pca)
+  res.var$coord          # Coordinates
+  res.var$contrib        # Contributions to the PCs
+  res.var$cos2           # Quality of representation 
+  
+  View(res.var$contrib[,1:3]) # Miro los dos primeros factores
+  
+  colSums( res.var$contrib[,1:2] )
+  
+  
+  
+  # Results for individuals
+  res.ind &lt;- get_pca_ind(res.pca)
+  res.ind$coord          # Coordinates
+  res.ind$contrib        # Contributions to the PCs
+  res.ind$cos2           # Quality of representation 
+  
+  
+  View(res.ind$contrib[,1:3]) # Miro los dos primeros factores
+  
+  res.ind$contrib[,1:2]
+  
+  
+  
+  # Utilizo un conjunto para predecir
+  
+  ind.test &lt;- decathlon2[24:27, 1:10]
+  head(ind.test)
+  
+  
+  ind.test.coord &lt;- predict(res.pca, newdata = ind.test)
+  ind.test.coord[, 1:2] # Miro los primeros dos componentes
+  
+  ind.test.coord
+  
+  
+  # Utilizo el gráfico anterior y le anexo los nuevos individuos
+  
+  p &lt;- fviz_pca_ind(res.pca, repel = TRUE)
+  
+  fviz_add(p, ind.test.coord, color ="blue")
+  
+  
+  
+  
+
+  
+  ##############################################################################
+  ##############################################################################
+  # Factoclass
+  
+  
+  library(FactoClass)
+  
+  resultado_ACP&lt;-FactoClass(decathlon2.train,dudi.pca)
+  2
+  2
+  4
+  resultado_ACP$cluster
+  
+  
+  NuevaBase&lt;-data.frame(Cluster=resultado_ACP$cluster,decathlon2.train)  # unir base de datos con la nueva variable cluster
+  
+  View(NuevaBase)
+  
+  #Gráficos
+  plot(resultado_ACP$dudi) # Grafico del análisis
+  s.corcircle((resultado_ACP$dudi)$co)    
+  s.label((resultado_ACP$dudi)$li,label=row.names(decathlon2.train)) #Graf. Individuos
+  s.label((resultado_ACP$dudi)$co,xax=1,yax=2,sub="Componente 1 y 2",possub="bottomright") #Graf. Variables
+  scatter(resultado_ACP$dudi,xax=1,yax=2) # Graf. Conjuntos
+  
+  Grupo&lt;-NuevaBase$Cluster
+  s.class((resultado_ACP$dudi)$li,Grupo,sub="Componentes 1 y 2",possub="bottomright",xax=1,yax=2,col=c(1,2,3,4))
+  
+  
+  #Descripción de los grupos (Análisis de medias)
+  resultado_ACP$carac.cont
+```
+
+
+
+
+
+
+---
+
+class: inverse, center, middle
+background-color: #122140
+
+.pull-left[
+
+.center[
+&lt;br&gt;&lt;br&gt;
+
+# Gracias!!!
+
+&lt;br&gt;
+
+
+
+### ¿Preguntas?
+
+&lt;br&gt;
+
+
+&lt;img src="img/qr-code.png" width="49%" style="display: block; margin: auto;" /&gt;
+
+
+]
+
+
+]
+
+
+.pull-right[
+
+&lt;br&gt; 
+&lt;br&gt; 
+&lt;img style="border-radius: 50%;" src="img/avatar.png"
+width="150px"
+/&gt;
+
+### [www.joaquibarandica.com](https://www.joaquibarandica.com)
+
+<i class="fa fa-envelope" role="presentation" aria-label="envelope icon"></i> orlando.joaqui@correounivalle.edu.co
+
+&lt;img src="img/Logo.jpg" width="120%"&gt;
+
+]
+
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+
+
+
+
+
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:9",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
