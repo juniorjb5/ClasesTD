@@ -1,0 +1,8 @@
+\babel@toc {spanish}{}\relax 
+\beamer@sectionintoc {1}{Modelos variable dependiente cualitativa}{3}{0}{1}
+\beamer@sectionintoc {2}{MLP}{10}{0}{2}
+\beamer@sectionintoc {3}{Logit}{18}{0}{3}
+\beamer@sectionintoc {4}{Probit}{34}{0}{4}
+\beamer@sectionintoc {5}{¿Probit o Logit?}{37}{0}{5}
+\beamer@sectionintoc {6}{Predicciones correctas}{39}{0}{6}
+\beamer@sectionintoc {7}{HL}{41}{0}{7}

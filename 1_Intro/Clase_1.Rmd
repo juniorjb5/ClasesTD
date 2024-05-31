@@ -1,9 +1,9 @@
 ---
 title: "Big Data en la toma de decisiones"
 subtitle: "<br/> Sostenibilidad empresarial"
-author: "PhD.(C). Orlando Joaqui-Barandica"
+author: "PhD. Orlando Joaqui-Barandica"
 institute: "Universidad del Valle"
-date: "2023"
+date: "2024"
 output:
   xaringan::moon_reader:
     lib_dir: libs

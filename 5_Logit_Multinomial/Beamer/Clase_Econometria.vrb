@@ -1,0 +1,25 @@
+
+\frametitle {Box-Jenkins: Diagnóstico}
+
+\textbf{Test de Dickey-Fuller aumentada (DFA)}
+\vspace{4mm}
+
+Esta prueba evalúa la presencia de raíces unitarias en la serie.
+
+\begin{itemize}
+\item $H_0:$ Hay raíces unitarias en la serie
+\item $H_1:$ No hay raíces unitarias en la serie. (La serie es estacionaria)
+\end{itemize}
+
+\begin{block}{Funciones}
+\begin{verbatim}
+En R: la función a utilizar es adf.test() de la librería
+tseries --> library(tseries)
+
+o la función adfTest() de la librería
+fUnitRoots --> library(fUnitRoots)
+
+En STATA: la función a utilizar es dfuller
+\end{verbatim}
+\end{block}
+

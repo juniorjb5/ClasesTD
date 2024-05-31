@@ -1,9 +1,9 @@
 ---
 title: "Modelo de regresión lineal"
 subtitle: "<br/> Tema 1"
-author: "PhD.(C) Orlando Joaqui-Barandica"
+author: "PhD. Orlando Joaqui-Barandica"
 institute: "Universidad del Valle"
-date: "2023"
+date: "2024"
 output:
   xaringan::moon_reader:
     lib_dir: libs
