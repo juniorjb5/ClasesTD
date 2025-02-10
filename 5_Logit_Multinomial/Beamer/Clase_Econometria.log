@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.5.12)  19 NOV 2023 21:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.5.12)  9 JUL 2024 13:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1264,8 +1264,8 @@ File: l3backend-pdftex.def 2023-04-19 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count369
 \l__pdf_internal_box=\box134
 ) (Clase_Econometria.aux
-LaTeX Info: Redefining \. on input line 23.
-LaTeX Info: Redefining \% on input line 23.
+LaTeX Info: Redefining \. on input line 22.
+LaTeX Info: Redefining \% on input line 22.
 )
 \openout1 = `Clase_Econometria.aux'.
 
@@ -1936,20 +1936,14 @@ Overfull \hbox (302.77327pt too wide) has occurred while \output is active
 LaTeX Info: Redefining \. on input line 22.
 LaTeX Info: Redefining \% on input line 22.
 )
-
-Package rerunfilecheck Warning: File `Clase_Econometria.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Clase_Econometria.out':
-(rerunfilecheck)             Before: E149F0849D1B350079517A603EBBF5F2;349
-(rerunfilecheck)             After:  DC929CD207C26D52DBAE0649AF27E290;792.
+Package rerunfilecheck Info: File `Clase_Econometria.out' has not changed.
+(rerunfilecheck)             Checksum: DC929CD207C26D52DBAE0649AF27E290;792.
  ) 
 Here is how much of TeX's memory you used:
- 30810 strings out of 476315
- 601302 string characters out of 5786252
+ 30809 strings out of 476315
+ 601335 string characters out of 5786252
  1865068 words of memory out of 5000000
- 50439 multiletter control sequences out of 15000+600000
+ 50438 multiletter control sequences out of 15000+600000
  585510 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,20n,122p,3250b,675s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1969,7 +1963,7 @@ pe1/public/lm/lmsso10.pfb><C:/Users/JuniorJ/AppData/Local/Programs/MiKTeX/fonts
 ts/type1/public/lm/lmsso9.pfb><C:/Users/JuniorJ/AppData/Local/Programs/MiKTeX/f
 onts/type1/public/lm/lmsy10.pfb><C:/Users/JuniorJ/AppData/Local/Programs/MiKTeX
 /fonts/type1/public/lm/lmsy7.pfb>
-Output written on Clase_Econometria.pdf (43 pages, 1610222 bytes).
+Output written on Clase_Econometria.pdf (43 pages, 1610630 bytes).
 PDF statistics:
  1653 PDF objects out of 1728 (max. 8388607)
  94 named destinations out of 1000 (max. 500000)

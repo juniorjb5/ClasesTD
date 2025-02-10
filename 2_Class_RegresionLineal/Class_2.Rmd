@@ -1,9 +1,9 @@
 ---
 title: "Modelo de regresión lineal"
 subtitle: "<br/> Tema 1"
-author: "PhD. Orlando Joaqui-Barandica"
+author: "Orlando Joaqui-Barandica"
 institute: "Universidad del Valle"
-date: "2024"
+date: "2025"
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -90,7 +90,7 @@ knitr::include_graphics("img/gif1.gif")
 .pull-right[
 # Orlando Joaqui-Barandica
 ### [www.joaquibarandica.com](https://www.joaquibarandica.com)
- *PhD.(C) in Industrial Engineering* 
+ *PhD. in Industrial Engineering* 
  
  *MSc. Applied Economics*
  
@@ -446,6 +446,149 @@ Se diría que el error de predicción es de aproximadamente 174 000 millones de 
 
 
 
+background-image: url("images/crispdm.png")
+background-size: cover
+
+
+.pull-left[
+
+# Metodología CRISP-DM
+
+
+### 1. Entendimiento del Negocio
+
+- **Objetivo**: Identificar cómo el ingreso afecta el gasto en retail.
+
+
+- **PMC**: Proporción de ingreso adicional que se destina al retail.
+
+----
+
+### 2. Entendimiento de los Datos
+
+- **Variables clave**:
+    - Ingreso disponible de los consumidores
+    - Gasto en retail
+    
+- **Datos**: Registros trimestrales de 2010 a 2020
+
+
+]
+
+
+.pull-right[
+
+
+]
+
+---
+
+
+background-image: url("images/crispdm.png")
+background-size: cover
+
+
+.pull-left[
+
+# Metodología CRISP-DM
+
+
+
+### 3. Preparación de los Datos
+
+- **Limpieza**: Valores faltantes, errores en datos.
+
+- **Transformación**: Ajuste por inflación para comparabilidad.
+
+- **PMC**: Columna de gasto en retail como proporción del ingreso.
+
+----
+
+### 4. Modelado
+
+- **Modelo**: Regresión Lineal Simple
+
+$$Retail_{Gasto} = \beta_0 + \beta_1 \cdot Ingreso + e$$
+
+$\beta_1$: Propensión Marginal a Consumir (PMC) en retail.
+
+
+]
+
+
+
+.pull-right[
+
+
+]
+
+
+---
+
+
+background-image: url("images/crispdm.png")
+background-size: cover
+
+
+.pull-left[
+
+# Metodología CRISP-DM
+
+
+
+### 5. Evaluación del Modelo
+
+- **Interpretación**:
+    - $\beta_0$: Gasto básico en retail.
+    - $\beta_1$: Incremento en gasto por cada dólar adicional de ingreso.
+    
+- **Ejemplo de estimación**:
+
+$$\hat{Retail_{Gasto}} = 200 + 0.6 \cdot Ingreso$$
+
+----
+
+### 6. Despliegue del Modelo
+
+- **Aplicación**: Proyección de gastos en retail para decisiones estratégicas.
+
+- **Ejemplo**: Si Ingreso = $50,000 → Gasto proyectado = $30,200
+
+
+
+]
+
+.pull-right[
+
+
+]
+
+
+---
+
+
+
+
+
+
+
+class: middle
+
+.center[
+
+# Diferencia Principal: 
+
+
+.font120[**La metodología económica** se centra en explicar el .orange[**"por qué"**] desde una base teórica, mientras que **CRISP-DM** se enfoca en el .orange[**"cómo"**] aplicando datos de forma práctica y flexible.
+
+]]
+
+
+
+
+
+---
+
 
 name: Causalidad
 class: inverse, center, middle
@@ -751,6 +894,45 @@ Si sumamos los consumos semanales de las 60 familias que forman la población y 
 <img src="img/ejm2.jpg" width="90%"/>
 
 ### Esta figura muestra que para cada X (es decir, el nivel de ingresos) existe una población de valores Y (consumo semanal) que se distribuyen alrededor de la media (condicional) de dichos valores Y.
+
+
+
+---
+
+
+
+
+background-image: url("images/Imagen1.png")
+background-size: cover
+
+
+# Simulación
+
+
+.pull-left[
+
+
+### ¿Cuánto estarías dispuesto a pagar por una taza de este café especial?
+
+<br>
+
+### ¿Con qué frecuencia consumirías este café? (Cuántas tazas por mes)
+
+<br>
+
+### ¿Preferirías consumir este café en casa o en una cafetería?
+
+]
+
+
+
+.pull-right[
+
+
+
+]
+
+
 
 
 
